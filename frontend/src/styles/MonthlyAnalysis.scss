@@ -1,0 +1,16 @@
+.monthly-analysis {
+    height: 1000px;
+    
+    .monthly-analysis_form--before-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .monthly-analysis_form--after-submit {
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+    
+}

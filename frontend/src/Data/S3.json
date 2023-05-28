@@ -1,0 +1,132 @@
+[
+    {
+        "resourceType": "AWS::S3::Bucket",
+        "resourceId": "my-s3-bucket",
+        "region": "us-west-1",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Environment",
+                "value": "Development"
+            },
+            {
+                "key": "Application",
+                "value": "MyApp"
+            }
+        ],
+        "attributes": {
+            "storageClass": "STANDARD",
+            "region": "us-west-1",
+            "sizeTB": "10",
+            "costPerHour": "$0.0278",
+            "costPerMonth": "$20.16",
+            "costPerYear": "$241.92",
+            "costPerGBMonth": "$0.002016",
+            "costPerGBYear": "$0.024192"
+        }
+    },
+    {
+        "resourceType": "AWS::S3::Bucket",
+        "resourceId": "my-s3-bucket-ia",
+        "region": "eu-west-2",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Environment",
+                "value": "Production"
+            },
+            {
+                "key": "Application",
+                "value": "MyApp"
+            }
+        ],
+        "attributes": {
+            "storageClass": "STANDARD_IA",
+            "region": "eu-west-2",
+            "sizeTB": "5",
+            "costPerHour": "$0.0153",
+            "costPerMonth": "$11.07",
+            "costPerYear": "$132.84",
+            "costPerGBMonth": "$0.002214",
+            "costPerGBYear": "$0.026568"
+        }
+    },
+    {
+        "resourceType": "AWS::S3::Bucket",
+        "resourceId": "my-s3-bucket-glacier",
+        "region": "us-east-1",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Environment",
+                "value": "Production"
+            },
+            {
+                "key": "Application",
+                "value": "MyApp"
+            }
+        ],
+        "attributes": {
+            "storageClass": "GLACIER",
+            "region": "us-east-1",
+            "sizeTB": "20",
+            "costPerHour": "$0.0027",
+            "costPerMonth": "$1.96",
+            "costPerYear": "$23.52",
+            "costPerGBMonth": "$0.000098",
+            "costPerGBYear": "$0.001176"
+        }
+    },
+    {
+        "resourceType": "AWS::S3::Bucket",
+        "resourceId": "my-s3-bucket-ia-1zone",
+        "region": "eu-west-1",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Environment",
+                "value": "Development"
+            },
+            {
+                "key": "Application",
+                "value": "MyApp"
+            }
+        ],
+        "attributes": {
+            "storageClass": "ONEZONE_IA",
+            "region": "eu-west-1",
+            "sizeTB": "2",
+            "costPerHour": "$0.0142",
+            "costPerMonth": "$10.30",
+            "costPerYear": "$123.60",
+            "costPerGBMonth": "$0.00515",
+            "costPerGBYear": "$0.0618"
+        }
+    },
+    {
+        "resourceType": "AWS::S3::Bucket",
+        "resourceId": "my-s3-bucket-rrs",
+        "region": "ap-southeast-2",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Environment",
+                "value": "Development"
+            },
+            {
+                "key": "Application",   
+                "value": "MyApp"
+            }
+        ],
+        "attributes": {
+            "storageClass": "REDUCED_REDUNDANCY",
+            "region": "ap-southeast-2",
+            "sizeTB": "1",
+            "costPerHour": "$0.0138",
+            "costPerMonth": "$9.99",
+            "costPerYear": "$119.88",
+            "costPerGBMonth": "$0.009989",
+            "costPerGBYear": "$0.119868"
+        }
+    }
+]

@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './styles/Reports.scss';
+@import './styles//LandingPage.scss';
+@import './styles/Login.scss';
+@import './styles/ViewInstances.scss';
+@import './styles/Home.scss';
+@import './styles/PieChartAnalysis.scss';
+@import './styles/MonthlyAnalysis.scss';
+@import './styles/Loadingpage.scss';
+@import './styles/Dashbord.scss';
+@import './styles/PieChartMonthAnalysis.scss';
+@import './styles/Table.scss';
+@import './styles/Features.scss';
+@import './styles/SignUp.scss';
+@import './styles/Months.scss';
+@import './styles/chat.scss';
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#root {
+    height: 100%;
+}
+
+.App {
+    height: 100%;
+
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 4px grey;
+    border-radius: 7px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(120, 120, 120);
+    border-radius: 7px;
+}

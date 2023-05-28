@@ -1,0 +1,638 @@
+.dashboard {
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #1E262F;
+}
+
+.dashboard_main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #101317;
+    padding: 10px 20px 10px 20px;
+}
+
+.options {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #101317;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+
+.options_main {
+    width: 65%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.options_main input {
+    font-size: 20px;
+    border: none;
+    width: 100%;
+    height: auto;
+    color: white;
+    background-color: #101317;
+}
+
+.option_steps {
+    width: 100%;
+    padding-left: 20px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #101317;
+    font-size: 30px;
+    text-align: center;
+}
+
+.option_workout {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #101317;
+    font-size: 30px;
+}
+
+.option_nutrition {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #101317;
+    font-size: 30px;
+}
+
+.user_comp {
+    width: 100%;
+    height: auto;
+    padding: 10px 7px 10px 2px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.userinfo {
+    width: 25%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 20px;
+}
+
+.userinfo_pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.userinfo_ne {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.userinfo_ne input {
+    width: 100%;
+    height: auto;
+    color: #FFFFFF;
+    font-size: medium;
+    border: none;
+}
+
+.action_class {
+    width: 65%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+.user_comp_step {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+}
+
+.progressbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.progressbar_inside {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50%;
+    margin: 10px;
+    top: 0;
+    right: 0;
+    background-color: #1E262F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user_comp_step_info {
+    width: 50px;
+    height: auto;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+.user_comp_step_info input {
+    width: 100%;
+    font-size: medium;
+    color: #FFFFFF;
+    border: none;
+}
+
+.user_comp_workout {
+    width: 100%;
+    height: auto;
+    margin: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.user_comp_workout_info {
+    width: 100px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: #FFFFFF;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.user_comp_workout_icon {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user_comp_workout_icon_info {
+    width: 60px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user_comp_workout_icon_info input {
+    width: 100%;
+    padding-left: 10px;
+    font-size: medium;
+    border: none;
+    color: #FFFFFF;
+}
+
+.arrow {
+    background-color: #101317;
+    color: #FFFFFF;
+    transform: scaleY(3);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.user_comp_nutr {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    padding: 5px;
+}
+
+.piechart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.chart_inside {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    border-radius: 50%;
+    margin: 8px;
+    top: 0;
+    right: 0;
+    background-color: #1E262F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tooltip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    background-color: #333B44;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tooltip_div {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #1B222A;
+    margin-top: 8px;
+}
+
+.tooltip input {
+    border: none;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    background-color: transparent;
+}
+
+.progress {
+    margin-top: 0px;
+    padding: 0px 10px;
+    background-color: transparent;
+    color: black;
+}
+
+.user_comp_nutr_info {
+    width: 50px;
+    height: auto;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+.user_comp_nutr_info input {
+    color: #FFFFFF;
+    font-size: medium;
+    border: none;
+}
+
+.notification {
+    transform: scale(2);
+    background-color: aqua;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 35px;
+    margin-left: 10px;
+}
+
+.increment {
+    transform: scaleX(1.5);
+    padding: 2px 7px 2px 7px;
+    background-color: #101317;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.increment:hover {
+    cursor: pointer;
+}
+
+.decrement:hover {
+    cursor: pointer;
+}
+
+.decrement {
+    transform: scaleX(1.5);
+    padding: 2px 7px 2px 7px;
+    background-color: #101317;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.App_main2 {
+    display: none;
+}
+
+
+
+
+
+@media (max-width:768px) {
+    .App_main {
+        display: none;
+    }
+
+    .options {
+        display: none;
+    }
+
+    .App_main2 {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        background-color: #101317;
+        padding: 5px;
+        padding-bottom: 15px;
+    }
+
+    .user_comp {
+        width: 100%;
+        height: auto;
+        padding: 5px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        border-radius: 10px;
+    }
+
+    .userinfo {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .userinfo_pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .userinfo_ne {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        padding-left: 20px;
+    }
+
+    .userinfo_ne input {
+        width: 100%;
+        height: auto;
+        color: #FFFFFF;
+        font-size: medium;
+        border: none;
+    }
+
+    .notification {
+        transform: scale(2);
+        background-color: aqua;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 25px;
+        margin-right: 20px;
+    }
+
+    .action_class {
+        width: 100%;
+        margin-left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .progessbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        position: relative;
+    }
+
+    .progressbar_inside {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        border-radius: 50%;
+        margin: 5px;
+        top: 0;
+        right: 0;
+        background-color: #1E262F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .user_comp_step_info {
+        width: 35px;
+        height: auto;
+        padding-left: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: #FFFFFF;
+    }
+
+    .user_comp_step_info input {
+        width: 100%;
+        font-size: x-small;
+        color: #FFFFFF;
+        border: none;
+    }
+
+    .user_comp_workout {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .user_comp_workout_info {
+        width: 80px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        color: #FFFFFF;
+        padding-right: 10px;
+        text-align: center;
+    }
+
+    .user_comp_workout_icon {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .scheduledate {
+        transform: scale(0.6);
+        padding-top: 5px;
+    }
+
+    .targetdate {
+        transform: scale(0.5);
+    }
+
+    .user_comp_workout_icon_info {
+        width: 42px;
+        height: auto;
+        font-size: small;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .user_comp_workout_icon_info input {
+        width: 100%;
+        padding-left: 2px;
+        font-size: small;
+        border: none;
+        color: #FFFFFF;
+    }
+
+    .arrow {
+        transform: scale(0.5);
+        transform: scaleY(2);
+        background-color: #101317;
+        color: #FFFFFF;
+        border-radius: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .user_comp_nutr {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .piechart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        position: relative;
+    }
+
+    .tooltip {
+        width: 200px;
+    }
+
+    .chart_inside {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        border-radius: 50%;
+        margin: 5px;
+        top: 0;
+        right: 0;
+        background-color: #1E262F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .user_comp_nutr_info {
+        width: 40px;
+        height: auto;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        color: #FFFFFF;
+    }
+
+    .user_comp_nutr_info input {
+        font-size: small;
+        color: #FFFFFF;
+        border: none;
+    }
+
+
+    .increment {
+        transform: scaleX(1.5);
+        transform: scaleY(0.7);
+        padding: 2px 4px 2px 4px;
+        background-color: #101317;
+        border-radius: 5px;
+        margin-bottom: 1px;
+    }
+
+    .decrement {
+        transform: scaleX(1.5);
+        transform: scaleY(0.7);
+        padding: 2px 4px 2px 4px;
+        background-color: #101317;
+        border-radius: 5px;
+        margin-top: 1px;
+    }
+
+
+}

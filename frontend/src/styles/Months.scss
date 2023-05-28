@@ -1,0 +1,65 @@
+.months {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 200px;
+    margin-left: 20px;
+    gap: 10px;
+
+    a {
+        color: blue;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 10px;
+        margin: 0 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        margin-right: 50px;
+        margin-bottom: 50px;
+    }
+
+    a:hover {
+        color: red;
+        text-decoration: underline;
+    }
+
+}
+
+.flip-card {
+    perspective: 1000px;
+    /* Adds 3D perspective */
+
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+    /* Flips the card on hover */
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    margin-top: 20px;
+    padding-left: 60px;
+    padding-top: 60px;
+    font-size: 30px;
+    font-weight: 30;
+}
+
+.flip-card-front {}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}

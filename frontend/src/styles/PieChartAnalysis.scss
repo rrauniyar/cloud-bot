@@ -1,0 +1,14 @@
+.pie-chart-analysis {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin-top: 100px;
+
+    &__pieChart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1000px;
+        // border: 2px solid red;
+        width: 100%;
+    }
+}

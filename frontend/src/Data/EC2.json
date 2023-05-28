@@ -1,0 +1,199 @@
+[
+    {
+        "resourceType": "AWS::EC2::Instance",
+        "resourceId": "i-0123456789abcdef0",
+        "region": "us-east-1",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "My EC2 Instance"
+            },
+            {
+                "key": "Environment",
+                "value": "Production"
+            }
+        ],
+        "attributes": {
+            "instanceType": "t3.small",
+            "amiId": "ami-0123456789abcdef0",
+            "state": "running",
+            "vcpus": "2",
+            "memoryGiB": "2",
+            "costPerHour": "$0.0232",
+            "costPerMonth": "$16.808",
+            "costPerYear": "$201.696",
+            "costPerCPU": "$0.0116",
+            "costPerMemoryGiB": "$0.0058"
+        }
+    },
+    {
+        "resourceType": "AWS::EC2::Instance",
+        "resourceId": "i-0123456789abcdef1",
+        "region": "us-west-2",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "My EC2 Instance"
+            },
+            {
+                "key": "Environment",
+                "value": "Development"
+            }
+        ],
+        "attributes": {
+            "instanceType": "m5a.12xlarge",
+            "amiId": "ami-0123456789abcdef1",
+            "state": "stopped",
+            "vcpus": "48",
+            "memoryGiB": "192",
+            "costPerHour": "$2.592",
+            "costPerMonth": "$1,876.992",
+            "costPerYear": "$22,523.904",
+            "costPerCPU": "$0.054",
+            "costPerMemoryGiB": "$0.012"
+        }
+    },
+    {
+        "resourceType": "AWS::EC2::Instance",
+        "resourceId": "i-0123456789abcdef2",
+        "region": "eu-west-1",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "My EC2 Instance"
+            },
+            {
+                "key": "Environment",
+                "value": "Production"
+            }
+        ],
+        "attributes": {
+            "instanceType": "r5a.metal",
+            "amiId": "ami-0123456789abcdef2",
+            "state": "running",
+            "vcpus": "96",
+            "memoryGiB": "768",
+            "costPerHour": "$15.216",
+            "costPerMonth": "$11,028.672",
+            "costPerYear": "$132,344.064",
+            "costPerCPU": "$0.1585",
+            "costPerMemoryGiB": "$0.0147"
+        }
+    },
+    {
+        "resourceType": "AWS::EC2::Instance",
+        "resourceId": "i-0123456789abcdef3",
+        "region": "ap-southeast-1",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "My EC2 Instance"
+            },
+            {
+                "key": "Environment",
+                "value": "Staging"
+            }
+        ],
+        "attributes": {
+            "instanceType": "c5n.18xlarge",
+            "amiId": "ami-0123456789abcdef3",
+            "state": "running",
+            "vcpus": "72",
+            "memoryGiB": "192",
+            "costPerHour": "$9.936",
+            "costPerMonth": "$7,201.28",
+            "costPerYear": "$86,415.36",
+            "costPerCPU": "$0.138",
+            "costPerMemoryGiB": "$0.041"
+        }
+    },
+    {
+        "resourceType": "AWS::EC2::Instance",
+        "resourceId": "i-0123456789abcdef4",
+        "region": "us-west-1",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "My EC2 Instance"
+            },
+            {
+                "key": "Environment",
+                "value": "Testing"
+            }
+        ],
+        "attributes": {
+            "instanceType": "t2.micro",
+            "amiId": "ami-0123456789abcdef4",
+            "state": "stopped",
+            "vcpus": "1",
+            "memoryGiB": "1",
+            "costPerHour": "$0.0116",
+            "costPerMonth": "$8.4384",
+            "costPerYear": "$101.2608",
+            "costPerCPU": "$0.0116",
+            "costPerMemoryGiB": "$0.0058"
+        }
+    },
+    {
+        "resourceType": "AWS::EC2::Instance",
+        "resourceId": "i-0123456789abcdef5",
+        "region": "us-east-2",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "My EC2 Instance"
+            },
+            {
+                "key": "Environment",
+                "value": "Production"
+            }
+        ],
+        "attributes": {
+            "instanceType": "m6g.16xlarge",
+            "amiId": "ami-0123456789abcdef5",
+            "state": "running",
+            "vcpus": "64",
+            "memoryGiB": "256",
+            "costPerHour": "$3.904",
+            "costPerMonth": "$2,823.68",
+            "costPerYear": "$33,884.16",
+            "costPerCPU": "$0.061",
+            "costPerMemoryGiB": "$0.011"
+        }
+    },
+    {
+        "resourceType": "AWS::EC2::Instance",
+        "resourceId": "i-0123456789abcdef6",
+        "region": "us-west-2",
+        "accountId": "123456789012",
+        "tags": [
+            {
+                "key": "Name",
+                "value": "Web Server"
+            },
+            {
+                "key": "Environment",
+                "value": "Staging"
+            }
+        ],
+        "attributes": {
+            "instanceType": "m5.large",
+            "amiId": "ami-0123456789abcdef6",
+            "state": "stopped",
+            "vcpus": "2",
+            "memoryGiB": "8",
+            "costPerHour": "$0.096",
+            "costPerMonth": "$69.12",
+            "costPerYear": "$829.44",
+            "costPerCPU": "$0.048",
+            "costPerMemoryGiB": "$0.012"
+        }
+    }
+
+]
