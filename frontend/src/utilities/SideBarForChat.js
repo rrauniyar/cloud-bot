@@ -16,8 +16,7 @@ export const SideBarForChat = (props) => {
 
     function fetchInitailData() {
         const chatListData = myAxios.get("/auth/all-chats").then((response) => response.data).then((response) => {
-            setChatList([...chatList, response]);
-            console.log(response);
+            setChatList(response.data);
         }).catch((error) => {
             console.log(error);
         });
@@ -31,6 +30,7 @@ export const SideBarForChat = (props) => {
             id: parseInt(index) + 1,
         }
         const responseFromapi = myAxios.post("/auth/new-chat", sendDatatoApi).then((response) => response.data).then((response) => {
+            fetchInitailData();
             console.log(response);
         }).catch((tokenerror) => {
             console.log(tokenerror);
@@ -48,19 +48,13 @@ export const SideBarForChat = (props) => {
 
         const responseFromNewListIemApi = myAxios.post("/auth/create-chat", sendDatatoListApi).then((response) => response.data).then((response => {
             createChat(response.chatId);
+
         })).catch((error) => {
             console.log(error);
         });
 
         console.log(responseFromNewListIemApi);
 
-        fetchInitailData();
-
-    }
-
-    let chatListArray = [];
-    if (chatList.length > 0) {
-        chatListArray = chatList[0].data;
     }
 
 
@@ -75,7 +69,7 @@ export const SideBarForChat = (props) => {
                     />
                 </div>
 
-                {chatListArray.map((ListItem, index) => {
+                {chatList.map((ListItem, index) => {
                     const isSelected = index === selectedIndex;
                     return (
                         <a href={`/chat/${index}`} key={index}>
