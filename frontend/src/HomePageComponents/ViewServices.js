@@ -93,9 +93,9 @@ export const ViewServices = (props) => {
                             <button className="green focus dark" onClick={() => setGraphFlag(!graphFlag)}>View in PieChart</button>
                         </div>
 
-                    </div >) : (<div>
+                    </div >) : (<div className="piecharts">
                         <PieChart servicesArray={servicesArray} costData={costData} />
-                        <button className="green focus dark" onClick={() => setGraphFlag(!graphFlag)}>View in Tables</button>
+                        <div className="viewservices-table"><button className="green focus dark services-table-view" onClick={() => setGraphFlag(!graphFlag)}>View in Tables</button></div>
                     </div>)}
                 </div>
             ) : (

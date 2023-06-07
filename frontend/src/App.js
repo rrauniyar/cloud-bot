@@ -31,11 +31,13 @@ import { MonthlyAnalysis } from './pages/MonthlyAnalysis';
 import { PieChartMonthAnalysis } from './pages/PieChartMonthAnalysis';
 
 import { ToastContainer } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
+
 import { ChatScreen } from './utilities/ChatScreen';
 
-
 export function App() {
+
   return (
 
     <div className="App">
@@ -52,6 +54,7 @@ export function App() {
           <Route path="/pie-chart-monthly-analysis" element={<PieChartMonthAnalysis />} />
           <Route path="/s3Buckets" element={<S3Buckets />} />
           <Route exact path="/chat/:index" element={<ChatScreen />} />
+          
         </Routes>
       </BrowserRouter>
 

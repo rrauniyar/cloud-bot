@@ -3,7 +3,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { myAxios } from '../services/helper';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { Animated } from '../utilities/Animations/Animated';
+import login from '../images/Login.jpeg';
 import 'react-toastify/dist/ReactToastify.css';
+
 export const Login = (props) => {
     let [emailError, setEmailError] = useState('');
     let [passwordError, setPasswordError] = useState('');
@@ -91,61 +94,70 @@ export const Login = (props) => {
     //     return JSON.parse(jsonPayload);
     // }
     return (
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            Welcome {nameOfUser}
-            <form className="space-y-6" action="/" method="POST" onSubmit={SubmitHandler}>
-                <div>
-                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                        Email address
-                    </label>
-                    <div className="mt-2">
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            autoComplete="email"
-                            required
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
-                    </div>
-                    {emailError}
-                </div>
-
-                <div>
-                    <div className="flex items-center justify-between">
-                        <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                            Password
+        <div className='login'>
+            <Animated image={login} />
+            <div className='title'>
+                <h2 className='title--heading'>Login in To CloudBot</h2>
+                <p className="m-24 title--description">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                    mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                </p>
+            </div>
+            <div className="mt-60 sm:mx-auto sm:w-full sm:max-w-sm ">
+                {nameOfUser !== "USER" ? (<div className="block text font-medium leading-10 text-gray-100">Welcome {nameOfUser}</div>) : (<div></div>)}
+                <form className="space-y-6" action="/" method="POST" onSubmit={SubmitHandler}>
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-300">
+                            Email address
                         </label>
-                        <div className="text-sm">
-                            <a href="/" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                                Forgot password?
-                            </a>
+                        <div className="mt-2">
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                autoComplete="email"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
                         </div>
-
+                        {emailError && (
+                            <p className="mt-1 text-red-500 text-sm">{emailError}</p>
+                        )}
                     </div>
-                    <div className="mt-2">
-                        <input
-                            id="password"
-                            name="password"
-                            type="password"
-                            autoComplete="current-password"
-                            required
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
-                    </div>
-                    {passwordError}
-                </div>
 
-                <div>
-                    <button
-                        type="submit"
-                        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        style={{ "margin": "0" }}>
-                        Log in
-                    </button>
-                </div>
-            </form>
-            {/* <div className='google-auth'> <GoogleLogin
+                    <div>
+                        <div className="flex items-center justify-between">
+                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-300">
+                                Password
+                            </label>
+
+
+                        </div>
+                        <div className="mt-2">
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                autoComplete="current-password"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
+                        </div>
+                        {passwordError && (
+                            <p className="mt-1 text-red-500 text-sm">{passwordError}</p>
+                        )}
+                    </div>
+
+                    <div>
+                        <button
+                            type="submit"
+                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            style={{ "margin": "0" }}>
+                            Log in
+                        </button>
+                    </div>
+                </form>
+                {/* <div className='google-auth'> <GoogleLogin
                 onSuccess={credentialResponse => {
                     console.log(credentialResponse);
                     const responsePayload = decodeJwtResponse(credentialResponse.credential);
@@ -200,12 +212,13 @@ export const Login = (props) => {
                 }}
             /></div> */}
 
-            <p className="mt-10 text-center text-sm text-gray-500">
-                New here?{' '}
-                <a href="/signUp" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                    Register
-                </a>
-            </p>
+                <p className="mt-10 text-center text-sm text-gray-400">
+                    New here?{' '}
+                    <a href="/signUp" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                        Register
+                    </a>
+                </p>
+            </div>
         </div>
 
     )

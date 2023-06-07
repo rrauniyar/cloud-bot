@@ -16,7 +16,7 @@ ChartJS.register(
 )
 
 
-class PieChart extends Component {
+class   PieChart extends Component {
     render() {
         const dataLength = this.props.costData.length;
         const colors = [

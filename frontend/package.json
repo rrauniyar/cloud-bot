@@ -29,6 +29,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-minimal-pie-chart": "^8.4.0",
     "react-router-dom": "^6.8.2",
+    "react-spring": "^9.7.1",
     "react-sweet-progress": "^1.1.2",
     "react-table": "^7.8.0",
     "react-toastify": "^9.1.2",

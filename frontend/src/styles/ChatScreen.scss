@@ -1,0 +1,28 @@
+.create-chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    animation: promptAnimation 1s ease-in-out;
+
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 100px;
+
+    color: black;
+}
+
+
+@keyframes promptAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

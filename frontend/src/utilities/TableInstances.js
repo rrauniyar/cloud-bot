@@ -47,6 +47,10 @@ export function TableInstances(Data) {
         let columnData = [];
         if (obj) {
             for (let objKey of keys) {
+                console.log(objKey);
+                if (objKey.includes(".")) {
+                    continue;
+                }
                 let newColumnObj = {};
                 newColumnObj['Header'] = objKey;
                 newColumnObj['accessor'] = objKey;

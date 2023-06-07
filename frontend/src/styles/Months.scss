@@ -1,65 +1,88 @@
 .months {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    height: 200px;
-    margin-left: 20px;
-    gap: 10px;
-
-    a {
-        color: blue;
-        text-decoration: none;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 5px 10px;
-        margin: 0 5px;
-        border: 1px solid black;
-        border-radius: 5px;
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        margin-right: 50px;
-        margin-bottom: 50px;
-    }
-
-    a:hover {
-        color: red;
-        text-decoration: underline;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 
 }
 
-.flip-card {
-    perspective: 1000px;
-    /* Adds 3D perspective */
+.circles-list {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  // width: 100%;
+  // height: 400px;
+  // margin: 0 20%;
+
 
 }
 
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+.card {
+  width: 1120px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-    /* Flips the card on hover */
+.max-w-sm {
+  margin: 0 10px;
 }
 
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    backface-visibility: hidden;
-    margin-top: 20px;
-    padding-left: 60px;
-    padding-top: 60px;
-    font-size: 30px;
-    font-weight: 30;
+.arrow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: lightgray;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-.flip-card-front {}
+.prev-button {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
 
-.flip-card-back {
-    transform: rotateY(180deg);
+.next-button {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h5 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.bg-blue-700 {
+  background-color: #4C68FF;
+}
+
+.hover\:bg-blue-800:hover {
+  background-color: #254EDA;
+}
+
+
+.circles-list .active {
+  background-color: #87ceeb;
+  /* Light blue color */
+  border: 2px solid white;
 }

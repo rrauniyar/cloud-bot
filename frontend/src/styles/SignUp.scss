@@ -1,3 +1,38 @@
-.google-auth{
+.google-auth {
     margin-top: 20px;
+}
+
+.signup {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    background: #161617db;
+
+}
+
+.title--heading {
+
+
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 66px;
+    letter-spacing: 1px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.title--description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: white;
+
 }

@@ -1,23 +1,14 @@
 import { myAxiosAws } from '../services/helperAws';
 import { useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom';
 import { Navbar } from '../pages/Navbar';
 import * as React from 'react';
 import { Stats } from '../utilities/Stats';
 import { Loading } from '../utilities/Loading';
 import { ServicesList } from '../HomePageComponents/ServicesList';
 import { ViewServices } from '../HomePageComponents/ViewServices';
-import { Months } from '../pages/Months';
+import { Months } from '../HomePageComponents/Months';
 
 export const Home = () => {
-
-
-    const location = useLocation();
-    const dataFromRegister = location.state;
-    let nameOfUser = "USER";
-    if (dataFromRegister) {
-        nameOfUser = dataFromRegister.name;
-    }
 
     const [data, setData] = useState([]);
     const [pricedata, setPriceData] = useState({});
@@ -58,15 +49,14 @@ export const Home = () => {
     const costData = data.map((obj) => obj.cost_per_month);
     return (
         <div>
-            welcome {nameOfUser}
             <Navbar />
             <div className='HomePage'>
                 <div>
                     {data.length > 0 ? (<div> <Stats sumOfCostPerHour={pricedata.totalCostPerHour} sumOfCostPerMonth={pricedata.totalCostPerMonth} sumOfCostPerYear={pricedata.totalCostPerYear} prevMonthTotalCost={prevMonthPrice} />
                         <div className='HomePage__services'>
                             <ServicesList data={data} />
-                            <ViewServices Data={data} servicesArray={servicesArray} costData={costData}/>
-                            <Months/>
+                            <ViewServices Data={data} servicesArray={servicesArray} costData={costData} />
+                            <Months />
                         </div></div>) : (<Loading />)}
 
                 </div>

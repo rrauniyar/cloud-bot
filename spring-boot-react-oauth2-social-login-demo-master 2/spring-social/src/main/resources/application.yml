@@ -2,7 +2,9 @@ server:
   port: 3000
 
 spring:
-
+    servlet:
+      multipart:
+        max-request-size: 10MB
     datasource:
         url: jdbc:mysql://localhost:3306/chat?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
         username: root
