@@ -2,12 +2,23 @@ import { useEffect, useState } from "react"
 import { myAxiosAws } from '../services/helperAws';
 import { TableInstances } from "../utilities/TableInstances";
 import { Loading } from '../utilities/Loading'
+import { SidebarHome } from "../HomePageComponents/SidebarHome";
+import { myAxiosDs } from "../services/helperDs";
+import { Discuss } from "react-loader-spinner";
 export const S3Buckets = () => {
     const [Data, setData] = useState([]);
+    const [optimizedData, setOptimizedData] = useState("");
     useEffect(() => {
         const fetchData = async () => {
+            await myAxiosAws.post("/s3/configure/access", {
+                accessKey: localStorage.awsAccessKey,
+                secretKey: localStorage.awsSecretKey,
+                region: "eu-north-1"
+            }).then((response) => response.data).then((response) => console.log(response));
+
             try {
                 const response = await myAxiosAws.get("/s3/buckets-details").then((response) => response.data).then((response) => {
+                    console.log(response);
                     setData(response);
                 });
                 console.log(response);
@@ -16,14 +27,31 @@ export const S3Buckets = () => {
             }
 
         }
-
         fetchData();
     }, [])
+
+    const stringifyData = JSON.stringify(Data);
+
+    async function HandleOptimize() {
+        setOptimizedData("loading");
+        const response = await myAxiosDs.post("/chat", {
+            role: "AWS",
+            message: stringifyData
+        }).then((response) => response.data).then((response) => {
+            setOptimizedData(response.text);
+            console.log(response);
+        });
+
+        console.log(response);
+    }
+
     const tableInstance = TableInstances(Data);
     const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow, canNextPage, canPreviousPage, pageOptions, state, gotoPage, pageCount, setPageSize } = tableInstance;
     return (
         <div className="s3-buckets">
+            <SidebarHome />
             {Data.length > 0 ? (<div >
+
                 <table  {...getTableProps()} className="table">
                     <thead>
                         {headerGroups.map((headerGroup) => (
@@ -71,27 +99,46 @@ export const S3Buckets = () => {
                         }
 
                     </select>
+                    <div className="button-group">
+
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'} </button>
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => previousPage()} disabled={!canPreviousPage}>{'<'}  </button>
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => nextPage()} disabled={!canNextPage}>{'>'}</button>
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+                        <div style={{ marginTop: '10px' }}><strong style={{ marginLeft: '20px' }}> go to page:</strong></div>
+                        <input
+                            type="number"
+                            defaultValue={state.pageIndex + 1}
+                            onChange={e => {
+                                const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
+                                gotoPage(pageNumber)
+                            }}
+                            className="w-20 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                        />
+
+
+
+                    </div>
                 </div>
-                <div>
-
-                    <button className="green focus dark" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'} </button>
-                    <button className="green focus dark" onClick={() => previousPage()} disabled={!canPreviousPage}>PreviousPage</button>
-                    <button className="green focus dark" onClick={() => nextPage()} disabled={!canNextPage}>NextPage</button>
-                    <button className="green focus dark" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
-                    <strong style={{marginLeft:'20px'}}> go to page:</strong>
-                    <input
-                        type="number"
-                        defaultValue={state.pageIndex + 1}
-                        onChange={e => {
-                            const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
-                            gotoPage(pageNumber)
-                        }}
-                        className="w-20 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                    />
 
 
+                <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0" }} onClick={HandleOptimize}>Optimize</button>
+                {optimizedData === null ? (
+                    <div>
 
-                </div>
+                    </div>
+                ) : (
+                    <div>
+                        {optimizedData === "loading" ? (
+                            <div>
+                                <Discuss />
+                            </div>
+                        ) : (
+                            <div className="optimizedData">{optimizedData}</div>
+                        )}
+                    </div>
+                )}
+
 
             </div >) : (<Loading />)}
 

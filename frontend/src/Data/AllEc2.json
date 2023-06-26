@@ -1,0 +1,972 @@
+[
+    {
+      "instanceType": "m5d.8xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 1.9306,
+      "costPerMonth": 1390.0320000000002,
+      "costPerYear": 16680.384000000002,
+      "costPerVCpu": 0.06033125,
+      "costPerMemory": 0.00001472930908203125,
+      "vcpus": 32
+    },
+    {
+      "instanceType": "m6g.xlarge",
+      "memoryInGB": 16,
+      "costPerHour": 0.1202,
+      "costPerMonth": 86.54400000000001,
+      "costPerYear": 1038.5280000000002,
+      "costPerVCpu": 0.03005,
+      "costPerMemory": 0.00000733642578125,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "c5a.xlarge",
+      "memoryInGB": 8,
+      "costPerHour": 0.1146,
+      "costPerMonth": 82.512,
+      "costPerYear": 990.144,
+      "costPerVCpu": 0.02865,
+      "costPerMemory": 0.0000139892578125,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "r6i.24xlarge",
+      "memoryInGB": 768,
+      "costPerHour": 5.9295,
+      "costPerMonth": 4269.24,
+      "costPerYear": 51230.88,
+      "costPerVCpu": 0.061765625,
+      "costPerMemory": 0.000007539749145507812,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "m6gd.xlarge",
+      "memoryInGB": 16,
+      "costPerHour": 0.1202,
+      "costPerMonth": 86.54400000000001,
+      "costPerYear": 1038.5280000000002,
+      "costPerVCpu": 0.03005,
+      "costPerMemory": 0.00000733642578125,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "m5.xlarge",
+      "memoryInGB": 16,
+      "costPerHour": 0.1178,
+      "costPerMonth": 84.816,
+      "costPerYear": 1017.792,
+      "costPerVCpu": 0.02945,
+      "costPerMemory": 0.00000718994140625,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "i4i.4xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 0.8604,
+      "costPerMonth": 619.4879999999999,
+      "costPerYear": 7433.856,
+      "costPerVCpu": 0.053775,
+      "costPerMemory": 0.0000065643310546875,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "r6g.4xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 0.3823,
+      "costPerMonth": 275.25600000000003,
+      "costPerYear": 3303.072,
+      "costPerVCpu": 0.02389375,
+      "costPerMemory": 0.000002916717529296875,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "r6g.16xlarge",
+      "memoryInGB": 512,
+      "costPerHour": 1.139,
+      "costPerMonth": 820.0799999999999,
+      "costPerYear": 9840.96,
+      "costPerVCpu": 0.017796875,
+      "costPerMemory": 0.0000021724700927734375,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "c6g.16xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 1.0473,
+      "costPerMonth": 754.0559999999999,
+      "costPerYear": 9048.671999999999,
+      "costPerVCpu": 0.0163640625,
+      "costPerMemory": 0.000007990264892578124,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "c6i.8xlarge",
+      "memoryInGB": 64,
+      "costPerHour": 1.9306,
+      "costPerMonth": 1390.0320000000002,
+      "costPerYear": 16680.384000000002,
+      "costPerVCpu": 0.06033125,
+      "costPerMemory": 0.0000294586181640625,
+      "vcpus": 32
+    },
+    {
+      "instanceType": "c5d.large",
+      "memoryInGB": 4,
+      "costPerHour": 0.1193,
+      "costPerMonth": 85.896,
+      "costPerYear": 1030.752,
+      "costPerVCpu": 0.05965,
+      "costPerMemory": 0.0000291259765625,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "i4i.metal",
+      "memoryInGB": 1024,
+      "costPerHour": 3.5725,
+      "costPerMonth": 2572.2,
+      "costPerYear": 30866.399999999998,
+      "costPerVCpu": 0.02791015625,
+      "costPerMemory": 0.000003407001495361328,
+      "vcpus": 128
+    },
+    {
+      "instanceType": "r5.large",
+      "memoryInGB": 16,
+      "costPerHour": 0.0908,
+      "costPerMonth": 65.376,
+      "costPerYear": 784.5120000000001,
+      "costPerVCpu": 0.0454,
+      "costPerMemory": 0.0000055419921875,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "m6gd.medium",
+      "memoryInGB": 4,
+      "costPerHour": 0.075,
+      "costPerMonth": 53.99999999999999,
+      "costPerYear": 647.9999999999999,
+      "costPerVCpu": 0.075,
+      "costPerMemory": 0.000018310546875,
+      "vcpus": 1
+    },
+    {
+      "instanceType": "x2idn.24xlarge",
+      "memoryInGB": 1536,
+      "costPerHour": 3.5525,
+      "costPerMonth": 2557.8,
+      "costPerYear": 30693.600000000002,
+      "costPerVCpu": 0.03700520833333334,
+      "costPerMemory": 0.0000022586186726888024,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "c6i.32xlarge",
+      "memoryInGB": 256,
+      "costPerHour": 1.9653,
+      "costPerMonth": 1415.016,
+      "costPerYear": 16980.192000000003,
+      "costPerVCpu": 0.01535390625,
+      "costPerMemory": 0.000007497024536132813,
+      "vcpus": 128
+    },
+    {
+      "instanceType": "r6i.xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.2471,
+      "costPerMonth": 177.91199999999998,
+      "costPerYear": 2134.9439999999995,
+      "costPerVCpu": 0.061775,
+      "costPerMemory": 0.0000075408935546875,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "m6gd.12xlarge",
+      "memoryInGB": 192,
+      "costPerHour": 0.8524,
+      "costPerMonth": 613.728,
+      "costPerYear": 7364.735999999999,
+      "costPerVCpu": 0.017758333333333334,
+      "costPerMemory": 0.0000043355305989583336,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "m5.metal",
+      "memoryInGB": 384,
+      "costPerHour": 5.7919,
+      "costPerMonth": 4170.168000000001,
+      "costPerYear": 50042.016,
+      "costPerVCpu": 0.06033229166666667,
+      "costPerMemory": 0.000014729563395182292,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "r6g.medium",
+      "memoryInGB": 8,
+      "costPerHour": 0.0758,
+      "costPerMonth": 54.57600000000001,
+      "costPerYear": 654.912,
+      "costPerVCpu": 0.0758,
+      "costPerMemory": 0.0000092529296875,
+      "vcpus": 1
+    },
+    {
+      "instanceType": "m5.12xlarge",
+      "memoryInGB": 192,
+      "costPerHour": 0.818,
+      "costPerMonth": 588.9599999999999,
+      "costPerYear": 7067.519999999999,
+      "costPerVCpu": 0.017041666666666667,
+      "costPerMemory": 0.000004160563151041667,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "g5.2xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.5156,
+      "costPerMonth": 371.2319999999999,
+      "costPerYear": 4454.783999999999,
+      "costPerVCpu": 0.06445,
+      "costPerMemory": 0.00001573486328125,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "m6i.large",
+      "memoryInGB": 8,
+      "costPerHour": 0.1221,
+      "costPerMonth": 87.912,
+      "costPerYear": 1054.944,
+      "costPerVCpu": 0.06105,
+      "costPerMemory": 0.00001490478515625,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "r5n.4xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 0.4942,
+      "costPerMonth": 355.82399999999996,
+      "costPerYear": 4269.887999999999,
+      "costPerVCpu": 0.0308875,
+      "costPerMemory": 0.00000377044677734375,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "m6gd.4xlarge",
+      "memoryInGB": 64,
+      "costPerHour": 0.3708,
+      "costPerMonth": 266.976,
+      "costPerYear": 3203.712,
+      "costPerVCpu": 0.023175,
+      "costPerMemory": 0.000005657958984375,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "t3.large",
+      "memoryInGB": 8,
+      "costPerHour": 0.0535,
+      "costPerMonth": 38.52,
+      "costPerYear": 462.24,
+      "costPerVCpu": 0.02675,
+      "costPerMemory": 0.00000653076171875,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "r6g.large",
+      "memoryInGB": 16,
+      "costPerHour": 0.0915,
+      "costPerMonth": 65.88,
+      "costPerYear": 790.56,
+      "costPerVCpu": 0.04575,
+      "costPerMemory": 0.000005584716796875,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "c5d.2xlarge",
+      "memoryInGB": 16,
+      "costPerHour": 0.2521,
+      "costPerMonth": 181.512,
+      "costPerYear": 2178.1440000000002,
+      "costPerVCpu": 0.0315125,
+      "costPerMemory": 0.000015386962890625,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "c6i.2xlarge",
+      "memoryInGB": 16,
+      "costPerHour": 0.4827,
+      "costPerMonth": 347.54400000000004,
+      "costPerYear": 4170.528,
+      "costPerVCpu": 0.0603375,
+      "costPerMemory": 0.000029461669921875,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "t4g.nano",
+      "memoryInGB": 0.5,
+      "costPerHour": 0.0616,
+      "costPerMonth": 44.352000000000004,
+      "costPerYear": 532.224,
+      "costPerVCpu": 0.0308,
+      "costPerMemory": 0.0001203125,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "g4dn.metal",
+      "memoryInGB": 384,
+      "costPerHour": 7.039,
+      "costPerMonth": 5068.079999999999,
+      "costPerYear": 60816.95999999999,
+      "costPerVCpu": 0.07332291666666667,
+      "costPerMemory": 0.000017901102701822917,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "m5d.xlarge",
+      "memoryInGB": 16,
+      "costPerHour": 0.124,
+      "costPerMonth": 89.28,
+      "costPerYear": 1071.3600000000001,
+      "costPerVCpu": 0.031,
+      "costPerMemory": 0.000007568359375,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "m5d.16xlarge",
+      "memoryInGB": 256,
+      "costPerHour": 1.0473,
+      "costPerMonth": 754.0559999999999,
+      "costPerYear": 9048.671999999999,
+      "costPerVCpu": 0.0163640625,
+      "costPerMemory": 0.000003995132446289062,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "m5.8xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 0.5902,
+      "costPerMonth": 424.94399999999996,
+      "costPerYear": 5099.3279999999995,
+      "costPerVCpu": 0.01844375,
+      "costPerMemory": 0.00000450286865234375,
+      "vcpus": 32
+    },
+    {
+      "instanceType": "g5.4xlarge",
+      "memoryInGB": 64,
+      "costPerHour": 0.6467,
+      "costPerMonth": 465.624,
+      "costPerYear": 5587.488,
+      "costPerVCpu": 0.04041875,
+      "costPerMemory": 0.00000986785888671875,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "c5n.9xlarge",
+      "memoryInGB": 96,
+      "costPerHour": 0.6214,
+      "costPerMonth": 447.40799999999996,
+      "costPerYear": 5368.896,
+      "costPerVCpu": 0.01726111111111111,
+      "costPerMemory": 0.000006321207682291666,
+      "vcpus": 36
+    },
+    {
+      "instanceType": "c5n.2xlarge",
+      "memoryInGB": 21,
+      "costPerHour": 0.2608,
+      "costPerMonth": 187.776,
+      "costPerYear": 2253.312,
+      "costPerVCpu": 0.0326,
+      "costPerMemory": 0.00001212797619047619,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "m6i.24xlarge",
+      "memoryInGB": 384,
+      "costPerHour": 5.8607,
+      "costPerMonth": 4219.704,
+      "costPerYear": 50636.448,
+      "costPerVCpu": 0.06104895833333333,
+      "costPerMemory": 0.000014904530843098957,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "r6g.8xlarge",
+      "memoryInGB": 256,
+      "costPerHour": 0.6776,
+      "costPerMonth": 487.87199999999996,
+      "costPerYear": 5854.464,
+      "costPerVCpu": 0.021175,
+      "costPerMemory": 0.0000025848388671875,
+      "vcpus": 32
+    },
+    {
+      "instanceType": "r6gd.xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.1231,
+      "costPerMonth": 88.632,
+      "costPerYear": 1063.584,
+      "costPerVCpu": 0.030775,
+      "costPerMemory": 0.0000037567138671875,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "c6gn.4xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.3593,
+      "costPerMonth": 258.696,
+      "costPerYear": 3104.3520000000003,
+      "costPerVCpu": 0.02245625,
+      "costPerMemory": 0.0000109649658203125,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "r6i.4xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 0.4077,
+      "costPerMonth": 293.54400000000004,
+      "costPerYear": 3522.5280000000002,
+      "costPerVCpu": 0.02548125,
+      "costPerMemory": 0.000003110504150390625,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "c6in.24xlarge",
+      "memoryInGB": 192,
+      "costPerHour": 5.7919,
+      "costPerMonth": 4170.168000000001,
+      "costPerYear": 50042.016,
+      "costPerVCpu": 0.06033229166666667,
+      "costPerMemory": 0.000029459126790364585,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "c6i.16xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 3.8613,
+      "costPerMonth": 2780.136,
+      "costPerYear": 33361.632,
+      "costPerVCpu": 0.0603328125,
+      "costPerMemory": 0.000029459381103515625,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "t3.xlarge",
+      "memoryInGB": 16,
+      "costPerHour": 0.1254,
+      "costPerMonth": 90.28800000000001,
+      "costPerYear": 1083.4560000000001,
+      "costPerVCpu": 0.03135,
+      "costPerMemory": 0.00000765380859375,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "i4i.16xlarge",
+      "memoryInGB": 512,
+      "costPerHour": 4.6654,
+      "costPerMonth": 3359.088,
+      "costPerYear": 40309.056000000004,
+      "costPerVCpu": 0.072896875,
+      "costPerMemory": 0.000008898544311523437,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "c6in.12xlarge",
+      "memoryInGB": 96,
+      "costPerHour": 2.896,
+      "costPerMonth": 2085.12,
+      "costPerYear": 25021.44,
+      "costPerVCpu": 0.06033333333333333,
+      "costPerMemory": 0.000029459635416666665,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "c6i.4xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.3603,
+      "costPerMonth": 259.416,
+      "costPerYear": 3112.992,
+      "costPerVCpu": 0.02251875,
+      "costPerMemory": 0.0000109954833984375,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "c6g.12xlarge",
+      "memoryInGB": 96,
+      "costPerHour": 0.818,
+      "costPerMonth": 588.9599999999999,
+      "costPerYear": 7067.519999999999,
+      "costPerVCpu": 0.017041666666666667,
+      "costPerMemory": 0.000008321126302083333,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "m5d.large",
+      "memoryInGB": 8,
+      "costPerHour": 0.0891,
+      "costPerMonth": 64.152,
+      "costPerYear": 769.8240000000001,
+      "costPerVCpu": 0.04455,
+      "costPerMemory": 0.00001087646484375,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "m6i.8xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 1.9536,
+      "costPerMonth": 1406.592,
+      "costPerYear": 16879.104,
+      "costPerVCpu": 0.06105,
+      "costPerMemory": 0.00001490478515625,
+      "vcpus": 32
+    },
+    {
+      "instanceType": "c5.4xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.9544,
+      "costPerMonth": 687.168,
+      "costPerYear": 8246.016,
+      "costPerVCpu": 0.05965,
+      "costPerMemory": 0.0000291259765625,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "r5b.large",
+      "memoryInGB": 16,
+      "costPerHour": 0.09,
+      "costPerMonth": 64.80000000000001,
+      "costPerYear": 777.6000000000001,
+      "costPerVCpu": 0.045,
+      "costPerMemory": 0.0000054931640625,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "r6gd.2xlarge",
+      "memoryInGB": 64,
+      "costPerHour": 0.2561,
+      "costPerMonth": 184.392,
+      "costPerYear": 2212.7039999999997,
+      "costPerVCpu": 0.0320125,
+      "costPerMemory": 0.00000390777587890625,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "d2.8xlarge",
+      "memoryInGB": 244,
+      "costPerHour": 2.1966,
+      "costPerMonth": 1581.5520000000001,
+      "costPerYear": 18978.624000000003,
+      "costPerVCpu": 0.06101666666666667,
+      "costPerMemory": 0.000008791463883196722,
+      "vcpus": 36
+    },
+    {
+      "instanceType": "r5dn.8xlarge",
+      "memoryInGB": 256,
+      "costPerHour": 1.9525,
+      "costPerMonth": 1405.8,
+      "costPerYear": 16869.6,
+      "costPerVCpu": 0.061015625,
+      "costPerMemory": 0.000007448196411132812,
+      "vcpus": 32
+    },
+    {
+      "instanceType": "r5n.12xlarge",
+      "memoryInGB": 384,
+      "costPerHour": 2.9287,
+      "costPerMonth": 2108.664,
+      "costPerYear": 25303.968,
+      "costPerVCpu": 0.06101458333333334,
+      "costPerMemory": 0.000007448069254557292,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "r6gd.large",
+      "memoryInGB": 16,
+      "costPerHour": 0.0915,
+      "costPerMonth": 65.88,
+      "costPerYear": 790.56,
+      "costPerVCpu": 0.04575,
+      "costPerMemory": 0.000005584716796875,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "c5.xlarge",
+      "memoryInGB": 8,
+      "costPerHour": 0.1157,
+      "costPerMonth": 83.30399999999999,
+      "costPerYear": 999.6479999999999,
+      "costPerVCpu": 0.028925,
+      "costPerMemory": 0.00001412353515625,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "r5b.12xlarge",
+      "memoryInGB": 384,
+      "costPerHour": 0.8507,
+      "costPerMonth": 612.504,
+      "costPerYear": 7350.048000000001,
+      "costPerVCpu": 0.017722916666666668,
+      "costPerMemory": 0.0000021634419759114585,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "c5n.4xlarge",
+      "memoryInGB": 42,
+      "costPerHour": 0.3652,
+      "costPerMonth": 262.944,
+      "costPerYear": 3155.3280000000004,
+      "costPerVCpu": 0.022825,
+      "costPerMemory": 0.000008491443452380953,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "c6gn.xlarge",
+      "memoryInGB": 8,
+      "costPerHour": 0.1653,
+      "costPerMonth": 119.016,
+      "costPerYear": 1428.192,
+      "costPerVCpu": 0.041325,
+      "costPerMemory": 0.00002017822265625,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "c6gn.16xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 1.639,
+      "costPerMonth": 1180.08,
+      "costPerYear": 14160.96,
+      "costPerVCpu": 0.025609375,
+      "costPerMemory": 0.00001250457763671875,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "i3en.12xlarge",
+      "memoryInGB": 384,
+      "costPerHour": 3.9144,
+      "costPerMonth": 2818.368,
+      "costPerYear": 33820.416,
+      "costPerVCpu": 0.08155,
+      "costPerMemory": 0.000009954833984375,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "x2iedn.xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 0.3452,
+      "costPerMonth": 248.544,
+      "costPerYear": 2982.5280000000002,
+      "costPerVCpu": 0.0863,
+      "costPerMemory": 0.0000026336669921875,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "d2.2xlarge",
+      "memoryInGB": 61,
+      "costPerHour": 0.9109,
+      "costPerMonth": 655.8480000000001,
+      "costPerYear": 7870.176000000001,
+      "costPerVCpu": 0.1138625,
+      "costPerMemory": 0.000014582799692622952,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "c6gn.12xlarge",
+      "memoryInGB": 96,
+      "costPerHour": 1.2315,
+      "costPerMonth": 886.6800000000001,
+      "costPerYear": 10640.16,
+      "costPerVCpu": 0.025656250000000002,
+      "costPerMemory": 0.000012527465820312501,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "m6gd.16xlarge",
+      "memoryInGB": 256,
+      "costPerHour": 1.0931,
+      "costPerMonth": 787.032,
+      "costPerYear": 9444.384,
+      "costPerVCpu": 0.0170796875,
+      "costPerMemory": 0.000004169845581054687,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "m6g.metal",
+      "memoryInGB": 256,
+      "costPerHour": 1.0931,
+      "costPerMonth": 787.032,
+      "costPerYear": 9444.384,
+      "costPerVCpu": 0.0170796875,
+      "costPerMemory": 0.000004169845581054687,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "t4g.2xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.2126,
+      "costPerMonth": 153.072,
+      "costPerYear": 1836.864,
+      "costPerVCpu": 0.026575,
+      "costPerMemory": 0.000006488037109375,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "m5d.metal",
+      "memoryInGB": 384,
+      "costPerHour": 5.7919,
+      "costPerMonth": 4170.168000000001,
+      "costPerYear": 50042.016,
+      "costPerVCpu": 0.06033229166666667,
+      "costPerMemory": 0.000014729563395182292,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "c5a.4xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.3508,
+      "costPerMonth": 252.576,
+      "costPerYear": 3030.912,
+      "costPerVCpu": 0.021925,
+      "costPerMemory": 0.00001070556640625,
+      "vcpus": 16
+    },
+    {
+      "instanceType": "m5.24xlarge",
+      "memoryInGB": 384,
+      "costPerHour": 5.7919,
+      "costPerMonth": 4170.168000000001,
+      "costPerYear": 50042.016,
+      "costPerVCpu": 0.06033229166666667,
+      "costPerMemory": 0.000014729563395182292,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "g4dn.12xlarge",
+      "memoryInGB": 192,
+      "costPerHour": 2.1399,
+      "costPerMonth": 1540.7279999999998,
+      "costPerYear": 18488.735999999997,
+      "costPerVCpu": 0.044581249999999996,
+      "costPerMemory": 0.000010884094238281249,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "r6gd.medium",
+      "memoryInGB": 8,
+      "costPerHour": 0.0758,
+      "costPerMonth": 54.57600000000001,
+      "costPerYear": 654.912,
+      "costPerVCpu": 0.0758,
+      "costPerMemory": 0.0000092529296875,
+      "vcpus": 1
+    },
+    {
+      "instanceType": "i3en.24xlarge",
+      "memoryInGB": 768,
+      "costPerHour": 3.5428,
+      "costPerMonth": 2550.8160000000003,
+      "costPerYear": 30609.792,
+      "costPerVCpu": 0.03690416666666667,
+      "costPerMemory": 0.0000045049031575520836,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "c6in.xlarge",
+      "memoryInGB": 8,
+      "costPerHour": 0.2413,
+      "costPerMonth": 173.736,
+      "costPerYear": 2084.832,
+      "costPerVCpu": 0.060325,
+      "costPerMemory": 0.00002945556640625,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "i3en.3xlarge",
+      "memoryInGB": 96,
+      "costPerHour": 0.5566,
+      "costPerMonth": 400.752,
+      "costPerYear": 4809.024,
+      "costPerVCpu": 0.04638333333333333,
+      "costPerMemory": 0.0000056620279947916665,
+      "vcpus": 12
+    },
+    {
+      "instanceType": "c6i.24xlarge",
+      "memoryInGB": 192,
+      "costPerHour": 5.7919,
+      "costPerMonth": 4170.168000000001,
+      "costPerYear": 50042.016,
+      "costPerVCpu": 0.06033229166666667,
+      "costPerMemory": 0.000029459126790364585,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "c5d.12xlarge",
+      "memoryInGB": 96,
+      "costPerHour": 0.7852,
+      "costPerMonth": 565.3439999999999,
+      "costPerYear": 6784.127999999999,
+      "costPerVCpu": 0.016358333333333332,
+      "costPerMemory": 0.000007987467447916666,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "c6i.large",
+      "memoryInGB": 4,
+      "costPerHour": 0.1207,
+      "costPerMonth": 86.904,
+      "costPerYear": 1042.848,
+      "costPerVCpu": 0.06035,
+      "costPerMemory": 0.0000294677734375,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "r6gd.metal",
+      "memoryInGB": 512,
+      "costPerHour": 1.139,
+      "costPerMonth": 820.0799999999999,
+      "costPerYear": 9840.96,
+      "costPerVCpu": 0.017796875,
+      "costPerMemory": 0.0000021724700927734375,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "c5a.12xlarge",
+      "memoryInGB": 96,
+      "costPerHour": 0.7852,
+      "costPerMonth": 565.3439999999999,
+      "costPerYear": 6784.127999999999,
+      "costPerVCpu": 0.016358333333333332,
+      "costPerMemory": 0.000007987467447916666,
+      "vcpus": 48
+    },
+    {
+      "instanceType": "c6in.16xlarge",
+      "memoryInGB": 128,
+      "costPerHour": 1.0473,
+      "costPerMonth": 754.0559999999999,
+      "costPerYear": 9048.671999999999,
+      "costPerVCpu": 0.0163640625,
+      "costPerMemory": 0.000007990264892578124,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "c6gd.metal",
+      "memoryInGB": 128,
+      "costPerHour": 1.0473,
+      "costPerMonth": 754.0559999999999,
+      "costPerYear": 9048.671999999999,
+      "costPerVCpu": 0.0163640625,
+      "costPerMemory": 0.000007990264892578124,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "c5n.large",
+      "memoryInGB": 5.25,
+      "costPerHour": 0.0877,
+      "costPerMonth": 63.144,
+      "costPerYear": 757.728,
+      "costPerVCpu": 0.04385,
+      "costPerMemory": 0.00001631324404761905,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "x2iedn.2xlarge",
+      "memoryInGB": 256,
+      "costPerHour": 0.7004,
+      "costPerMonth": 504.288,
+      "costPerYear": 6051.456,
+      "costPerVCpu": 0.08755,
+      "costPerMemory": 0.00000267181396484375,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "r5.24xlarge",
+      "memoryInGB": 768,
+      "costPerHour": 5.8574,
+      "costPerMonth": 4217.328,
+      "costPerYear": 50607.936,
+      "costPerVCpu": 0.06101458333333334,
+      "costPerMemory": 0.000007448069254557292,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "g5.24xlarge",
+      "memoryInGB": 384,
+      "costPerHour": 7.0073,
+      "costPerMonth": 5045.255999999999,
+      "costPerYear": 60543.07199999999,
+      "costPerVCpu": 0.07299270833333334,
+      "costPerMemory": 0.00001782048543294271,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "c6g.xlarge",
+      "memoryInGB": 8,
+      "costPerHour": 0.1204,
+      "costPerMonth": 86.68799999999999,
+      "costPerYear": 1040.2559999999999,
+      "costPerVCpu": 0.0301,
+      "costPerMemory": 0.000014697265625,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "r5b.metal",
+      "memoryInGB": 768,
+      "costPerHour": 1.5714,
+      "costPerMonth": 1131.408,
+      "costPerYear": 13576.895999999999,
+      "costPerVCpu": 0.016368749999999998,
+      "costPerMemory": 0.0000019981384277343747,
+      "vcpus": 96
+    },
+    {
+      "instanceType": "m6gd.metal",
+      "memoryInGB": 256,
+      "costPerHour": 1.0931,
+      "costPerMonth": 787.032,
+      "costPerYear": 9444.384,
+      "costPerVCpu": 0.0170796875,
+      "costPerMemory": 0.000004169845581054687,
+      "vcpus": 64
+    },
+    {
+      "instanceType": "t4g.medium",
+      "memoryInGB": 4,
+      "costPerHour": 0.0703,
+      "costPerMonth": 50.616,
+      "costPerYear": 607.392,
+      "costPerVCpu": 0.03515,
+      "costPerMemory": 0.0000171630859375,
+      "vcpus": 2
+    },
+    {
+      "instanceType": "t3.2xlarge",
+      "memoryInGB": 32,
+      "costPerHour": 0.2509,
+      "costPerMonth": 180.648,
+      "costPerYear": 2167.776,
+      "costPerVCpu": 0.0313625,
+      "costPerMemory": 0.0000076568603515625,
+      "vcpus": 8
+    },
+    {
+      "instanceType": "inf1.xlarge",
+      "memoryInGB": 8,
+      "costPerHour": 0.1326,
+      "costPerMonth": 95.472,
+      "costPerYear": 1145.664,
+      "costPerVCpu": 0.03315,
+      "costPerMemory": 0.0000161865234375,
+      "vcpus": 4
+    },
+    {
+      "instanceType": "t3.medium",
+      "memoryInGB": 4,
+      "costPerHour": 0.0314,
+      "costPerMonth": 22.607999999999997,
+      "costPerYear": 271.29599999999994,
+      "costPerVCpu": 0.0157,
+      "costPerMemory": 0.000007666015625,
+      "vcpus": 2
+    }
+  ]

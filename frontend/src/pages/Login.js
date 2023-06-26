@@ -71,7 +71,7 @@ export const Login = (props) => {
         const token = myAxios.post("/auth/login", userData).then((response) => response.data).then((response) => {
             console.log(response);
             if (userData)
-                navigate("/home", { state: { name: 'user' } });
+                navigate("/aws-keys", { state: { name: 'user' } });
         }).catch((tokenerror) => {
             toast("Wrong email or password!", {
                 type: "error",
@@ -99,8 +99,7 @@ export const Login = (props) => {
             <div className='title'>
                 <h2 className='title--heading'>Login in To CloudBot</h2>
                 <p className="m-24 title--description">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                    mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                Discover our powerful cost optimization tool designed for AWS. Engage in conversations with our AI chatbot, providing expert insights on AWS, GCP, and Azure. Gain full visibility into your AWS account's costs and effortlessly optimize your spending. Take control of your cloud expenses with ease!
                 </p>
             </div>
             <div className="mt-60 sm:mx-auto sm:w-full sm:max-w-sm ">
@@ -214,7 +213,7 @@ export const Login = (props) => {
 
                 <p className="mt-10 text-center text-sm text-gray-400">
                     New here?{' '}
-                    <a href="/signUp" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <a href="/" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                         Register
                     </a>
                 </p>

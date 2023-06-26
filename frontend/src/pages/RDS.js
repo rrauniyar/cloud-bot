@@ -1,18 +1,13 @@
+import { useEffect, useState } from "react"
 import { myAxiosAws } from '../services/helperAws';
-import { useState, useEffect } from "react";
+
+import { Loading } from '../utilities/Loading'
+
+import { myAxiosDs } from "../services/helperDs";
+import { Discuss } from "react-loader-spinner";
 import * as React from 'react';
-import { Stats } from '../utilities/Stats';
-import { Loading } from '../utilities/Loading';
-import { ServicesList } from '../HomePageComponents/ServicesList';
-
-
-import { SidebarHome } from '../HomePageComponents/SidebarHome';
-import { ApacePieChart } from '../utilities/ApacePieCharts';
-import { BarChartComponent } from '../utilities/BarChart';
-
-
-
 import { styled, useTheme } from '@mui/material/styles';
+import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -37,6 +32,8 @@ import RDSIcon from 'react-aws-icons/dist/aws/logo/RDS'
 import GraphicEq from '@material-ui/icons/GraphicEq';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import ChatIcon from '@material-ui/icons/Chat';
+import { TableInstancesRDS } from "../utilities/TableInstancesRds";
+
 
 
 const drawerWidth = 240;
@@ -106,17 +103,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-export const Home = () => {
 
-    const [data, setData] = useState([]);
-    const [pricedata, setPriceData] = useState({});
-    const [prevMonthPrice, setPrevMonthPrice] = useState({});
-
-
-    data.sort((a, b) => b.cost_per_month - a.cost_per_month);
-
+export const RDS = () => {
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -127,52 +117,71 @@ export const Home = () => {
     };
 
 
+    const [Data, setData] = useState([]);
+    const [optimizedData, setOptimizedData] = useState("");
+
+    const [Cpuvalue, setCpuValue] = React.useState([1, 200]);
+    const [memoryValue, setMemoryValue] = React.useState([1, 3048]);
+
+    const handleChange = (event, newValue) => {
+        setCpuValue(newValue);
+    };
+
+
+    const handleChange1 = (event, newValue) => {
+        setMemoryValue(newValue);
+    };
+
+    function valuetext(value) {
+        return `${value}`;
+    }
+
 
 
     useEffect(() => {
         const fetchData = async () => {
+            await myAxiosAws.post("/rds-instances/configure", {
+                accessKey: localStorage.awsAccessKey,
+                secretKey: localStorage.awsSecretKey,
+                region: "eu-north-1"
+            }).then((response) => response.data).then((response) => console.log(response));
+
             try {
-                const date = new Date();
-                let month = date.getMonth();
-                let year = date.getFullYear();
-                if (month === 0) {
-                    month = 12;
-                    year = year - 1;
-                }
 
 
-                myAxiosAws.post("/configure", {
-                    accessKey: localStorage.awsAccessKey,
-                    secretKey: localStorage.awsSecretKey,
-                    region: "eu-north-1"
-                }).then((response) => response.data).then((response) => console.log(response));
-
-                const response = await myAxiosAws.get("/total-cost");
-
-                console.log(response);
-                const prevMonthResponse = await myAxiosAws.get("/service-costs", { params: { year, month } });
-
-                const costdata = response.data.costDetails;
-                setPriceData({
-                    totalCostPerHour: `${response.data.totalCostPerHour}`,
-                    totalCostPerMonth: `${response.data.totalCostPerMonth}`,
-                    totalCostPerYear: `${response.data.totalCostPerYear}`
+                const response = await myAxiosAws.get("/rds-instances").then((response) => response.data).then((response) => {
+                    console.log(response);
+                    setData(response);
                 });
-                setData(costdata);
-                setPrevMonthPrice(prevMonthResponse.data["Total Cost"]["Total Cost"]);
-
-
+                console.log(response);
             } catch (error) {
                 console.log(error);
             }
-        };
-        fetchData();
-    }, []);
 
-    const servicesArray = data.map((obj) => obj.service_name);
-    const costData = data.map((obj) => obj.cost_per_month);
+        }
+        fetchData();
+    }, [])
+
+
+    const tableInstance = TableInstancesRDS(Data, Cpuvalue, memoryValue);
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow, canNextPage, canPreviousPage, pageOptions, state, gotoPage, pageCount, setPageSize } = tableInstance;
+    const stringifyData = JSON.stringify(tableInstance.data);
+
+    async function HandleOptimize() {
+        setOptimizedData("loading");
+        const response = await myAxiosDs.post("/chat", {
+            role: "AWS",
+            message: stringifyData
+        }).then((response) => response.data).then((response) => {
+            setOptimizedData(response.text);
+            console.log(response);
+        });
+
+        console.log(response);
+    }
+
     return (
-        <div>
+        <div className="rds">
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppBar position="fixed" open={open} style={{ background: 'black' }}>
@@ -397,6 +406,47 @@ export const Home = () => {
                                 </ListItemButton>
                             </ListItem>
                         </a>
+                        <ListItem disablePadding sx={{ display: 'flex' }}>
+                            <Slider
+                                sx={{
+                                    width: "50%",
+                                    marginLeft: "18px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center"
+
+                                }}
+                                getAriaLabel={() => 'Temperature range'}
+                                min={1}
+                                max={129}
+                                value={Cpuvalue}
+                                onChange={handleChange}
+                                valueLabelDisplay="auto"
+                                getAriaValueText={valuetext}
+                            />
+                            <ListItemText primary="Vcpus" sx={{ opacity: open ? 1 : 0, marginLeft: "10px" }} />
+                        </ListItem>
+
+                        <ListItem disablePadding sx={{ display: 'flex' }}>
+                            <Slider
+                                sx={{
+                                    width: "50%",
+                                    marginLeft: "18px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center"
+
+                                }}
+                                getAriaLabel={() => 'Temperature range'}
+                                value={memoryValue}
+                                min={1}
+                                max={1025}
+                                onChange={handleChange1}
+                                valueLabelDisplay="auto"
+                                getAriaValueText={valuetext}
+                            />
+                            <ListItemText primary="Memory" sx={{ opacity: open ? 1 : 0, marginLeft: "10px" }} />
+                        </ListItem>
                     </List>
 
                 </Drawer>
@@ -404,27 +454,98 @@ export const Home = () => {
 
                 </Box>
             </Box>
+            {Data.length > 0 ? (<div >
 
-            <div className='HomePage'>
-                <div>
-                    {data.length > 0 ? (<div> <Stats sumOfCostPerHour={pricedata.totalCostPerHour} sumOfCostPerMonth={pricedata.totalCostPerMonth} sumOfCostPerYear={pricedata.totalCostPerYear} prevMonthTotalCost={prevMonthPrice} open={open} />
-                        <div className='HomePage__services'>
-                            <ServicesList data={data} open={open}/>
-                            <ApacePieChart servicesArray={servicesArray} costData={costData} />
-                            {/* <PieChart servicesArray={servicesArray} costData={costData} /> */}
-                            {/* <ViewServices Data={data} servicesArray={servicesArray} costData={costData} /> */}
-                            {/* <Months /> */}
-                        </div>
+                <table  {...getTableProps()} className="table">
+                    <thead>
+                        {headerGroups.map((headerGroup) => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroup.headers.map((column) => (
+                                    <th  {...column.getHeaderProps(column.getSortByToggleProps())} className="table-header">
+                                        {column.render("Header")}
+                                        <span>
+                                            {column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : ""}
+                                        </span>
+                                    </th>
+                                ))}
+                            </tr>
+                        ))}
+                    </thead>
+                    <tbody {...getTableBodyProps()}>
+                        {page.map((row) => {
+                            prepareRow(row);
+                            return (
+                                <tr {...row.getRowProps()} className="table-row">
+                                    {row.cells.map((cell) => {
+                                        return <td {...cell.getCellProps()} className="table-cell">{cell.render("Cell")}</td>;
+                                    })}
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
 
-                        <BarChartComponent open={open}/>
+                <div className="page-selector">
+                    <span>
+                        Page {' '}
+                        <strong>
+                            {state.pageIndex + 1} of {pageOptions.length}
+                        </strong>
+                    </span>
+                    <select value={state.pageSize} onChange={(e) => (
+                        setPageSize(e.target.value)
+                    )}>{
+                            [10, 25, 40].map(pageSize => (
+                                <option key={pageSize} value={pageSize}>
+                                    show {pageSize}
+                                </option>
+                            ))
+                        }
 
-                    </div>) : (<Loading />)}
+                    </select>
+                    <div className="button-group">
 
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'} </button>
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => previousPage()} disabled={!canPreviousPage}>{'<'}  </button>
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => nextPage()} disabled={!canNextPage}>{'>'}</button>
+                        <button className="green focus dark" style={{ margin: "0" }} onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+                        <div style={{ marginTop: '10px' }}><strong style={{ marginLeft: '20px' }}> go to page:</strong></div>
+                        <input
+                            type="number"
+                            defaultValue={state.pageIndex + 1}
+                            onChange={e => {
+                                const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
+                                gotoPage(pageNumber)
+                            }}
+                            className="w-20 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                        />
+
+
+
+                    </div>
                 </div>
 
-            </div>
 
+                <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0" }} onClick={HandleOptimize}>Optimize</button>
+                {optimizedData === null ? (
+                    <div>
+
+                    </div>
+                ) : (
+                    <div>
+                        {optimizedData === "loading" ? (
+                            <div>
+                                <Discuss />
+                            </div>
+                        ) : (
+                            <div className="optimizedData">{optimizedData}</div>
+                        )}
+                    </div>
+                )}
+
+
+            </div >) : (<Loading />)}
 
         </div>
     )
-}    
+}

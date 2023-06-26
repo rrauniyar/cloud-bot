@@ -7,9 +7,10 @@ import { useState } from 'react';
 export const ServicesList = (props) => {
     const [showAll, setShowAll] = useState(false);
     const [listSize, setListSize] = useState(5);
+    const open = props.open;
     const data = props.data;
     return (
-        <div className='services__list'>
+        <div style={{ marginLeft: open ? "32%" :"10px" }}>
             <div>
                 <strong style={{ marginLeft: '10px' }}>Most used Services</strong>
                 <List sx={{ width: '100%', maxWidth: 1440, bgcolor: 'background.paper' }}>
@@ -31,25 +32,18 @@ export const ServicesList = (props) => {
                                 </>
                             }
                         >
-                            <a title="Click for detailed Analysis" href={`/services/${obj.service_name}`} style={{
-                                textDecoration: 'none',
-                                color: 'blue',
-                                fontWeight: '500',
-                                ':hover': {
-                                    color: 'purple',
-                                    borderBottomColor: 'purple',
-                                }
-                            }}>
-                                <ListItemText
-                                    primary={`${obj.service_name}`}
-                                    sx={{
-                                        fontWeight: 'bold',
-                                        fontSize: '18px',
-                                        lineHeight: '24px',
-                                        marginBottom: '8px'
-                                    }}
-                                />
-                            </a>
+
+                            <ListItemText
+                                primary={`${obj.service_name}`}
+                                sx={{
+                                    fontWeight: 'bold',
+                                    fontSize: '28px',
+                                    lineHeight: '24px',
+                                    marginBottom: '8px',
+                                    
+                                }}
+                            />
+
                         </ListItem>
                     ))}
                 </List>

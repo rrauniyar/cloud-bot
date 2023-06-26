@@ -1,8 +1,28 @@
-import { useCallback } from "react";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useSortBy, useTable, usePagination } from "react-table";
+import { useEffect, useState } from 'react';
+export function TableInstancesEC2(TableData, Cpuvalue, memoryValue) {
 
-export function TableInstances(Data) {
+
+    console.log(Cpuvalue);
+
+    console.log(TableData);
+
+    console.log(memoryValue);
+
+    const [Data, setData] = useState([]);
+    useEffect(() => {
+        const filteredData = TableData.filter(
+            item => (item.vcpus >= Cpuvalue[0] && item.vcpus <= Cpuvalue[1])
+
+        );
+        const filterAgainData = filteredData.filter(
+            item => (item.memoryInGB >= memoryValue[0] && item.memoryInGB <= memoryValue[1])
+        )
+        setData(filterAgainData);
+    }, [Cpuvalue, memoryValue]);
+
+    console.log(Data);
     const objectToKeyValuePairs = useCallback((obj) => {
         if (Array.isArray(obj)) {
             return obj.flatMap((item, index) =>
@@ -22,9 +42,7 @@ export function TableInstances(Data) {
     }, []);
 
     const keyValuePairs = useMemo(() => objectToKeyValuePairs(Data), [Data, objectToKeyValuePairs]);
-    if (!Array.isArray(keyValuePairs)) {
-        console.log("error");
-    }
+
     const keyValueObject = useMemo(() => {
         const result = {};
         for (let i = 0; i < keyValuePairs.length; i++) {
@@ -40,6 +58,7 @@ export function TableInstances(Data) {
 
         return result;
     }, [keyValuePairs]);
+
     const data = useMemo(() => Object.entries(keyValueObject).map(([_, value]) => value), [keyValueObject]);
     const obj = useMemo(() => data ? data[0] : null, [data]);
     const keys = useMemo(() => obj ? Object.keys(obj) : null, [obj]);
@@ -62,8 +81,9 @@ export function TableInstances(Data) {
         }
     }, [keys, obj]);
 
+
+
+
     const tableInstance = useTable({ columns, data }, useSortBy, usePagination);
     return tableInstance;
 }
-
-

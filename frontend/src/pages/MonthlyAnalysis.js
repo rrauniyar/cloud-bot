@@ -5,6 +5,7 @@ import { Loading } from '../utilities/Loading';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import { SidebarHome } from '../HomePageComponents/SidebarHome';
 
 export const MonthlyAnalysis = () => {
     const [data, setData] = useState([]);
@@ -15,6 +16,12 @@ export const MonthlyAnalysis = () => {
     const [submitState, setSubmitState] = useState(false);
     const [submitState2, setSubmitState2] = useState(false);
     async function fetchData(year, month) {
+        myAxiosAws.post("/configure", {
+            accessKey: localStorage.awsAccessKey,
+            secretKey: localStorage.awsSecretKey,
+            region: "eu-north-1"
+        }).then((response) => response.data).then((response) => console.log(response));
+
         if (month === 0) {
             year = year - 1;
             month = 12;
@@ -24,6 +31,7 @@ export const MonthlyAnalysis = () => {
         try {
 
             const startResponse = await myAxiosAws.get("/service-costs", { params: { year: year, month: month } });
+            console.log(startResponse);
             const totalcost = startResponse.data["Total Cost"]["Total Cost"];
             setData(prevData => {
                 const newData = [...prevData, { date: dateString, cost: totalcost }];
@@ -41,10 +49,20 @@ export const MonthlyAnalysis = () => {
     function HandleSubmit(event) {
         event.preventDefault();
         const diffInYears = endyear - startyear;
-        const diffInMonths = Math.min(0, endmonth - startmonth);
-        console.log(parseInt(startmonth) + diffInMonths + diffInYears * 12);
-        for (let month = startmonth; month <= parseInt(startmonth) + diffInMonths + diffInYears * 12; month++) {
-            fetchData(parseInt(startyear) + parseInt(month / 12), (month % 12));
+        console.log(diffInYears);
+        if (diffInYears === 0) {
+            for (let month = startmonth; month <= endmonth; month++) {
+                fetchData(parseInt(startyear) + parseInt(month / 12), month % 12);
+            }
+
+        }
+        else {
+            const diffInMonths = Math.min(0, endmonth - startmonth);
+            console.log(parseInt(startmonth) + diffInMonths + diffInYears * 12);
+            for (let month = startmonth; month <= parseInt(startmonth) + diffInMonths + diffInYears * 12; month++) {
+                console.log(month + " ")
+                fetchData(parseInt(startyear) + parseInt(month / 12), (month % 12));
+            }
         }
         setEndYear('');
         setEndMonth('');
@@ -57,10 +75,17 @@ export const MonthlyAnalysis = () => {
     function HandleSubmit2(event) {
         event.preventDefault();
         const diffInYears = endyear - startyear;
-        const diffInMonths = Math.min(0, endmonth - startmonth);
-        console.log(parseInt(startmonth) + diffInMonths + diffInYears * 12);
-        for (let month = startmonth; month <= parseInt(startmonth) + diffInMonths + diffInYears * 12; month++) {
-            fetchData(parseInt(startyear) + parseInt(month / 12), (month % 12));
+        if (diffInYears === 0) {
+            for (let month = startmonth; month <= endmonth; month++) {
+                fetchData(parseInt(startyear) + parseInt(month / 12), month % 12);
+            }
+        }
+        else {
+            const diffInMonths = Math.min(0, endmonth - startmonth);
+            console.log(parseInt(startmonth) + diffInMonths + diffInYears * 12);
+            for (let month = startmonth; month <= parseInt(startmonth) + diffInMonths + diffInYears * 12; month++) {
+                fetchData(parseInt(startyear) + parseInt(month / 12), (month % 12));
+            }
         }
         setEndYear('');
         setEndMonth('');
@@ -69,11 +94,14 @@ export const MonthlyAnalysis = () => {
         setData([]);
         setSubmitState2(!submitState2);
     }
+
+    console.log(data);
     return (
         <div>
 
             {data.length > 0 ? (
                 <div className="monthly-analysis">
+                    <SidebarHome />
                     <div className='monthly-analysis__graph'>
                         {submitState ? (
                             <div>
@@ -105,7 +133,9 @@ export const MonthlyAnalysis = () => {
             ) : (
 
                 < div className='monthly-analysis'>
+                    <SidebarHome />
                     {!submitState2 && !submitState ? (
+
                         <form onSubmit={HandleSubmit} className="monthly-analysis_form--before-submit">
                             <div className='form_start-year'>
 

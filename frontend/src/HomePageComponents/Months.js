@@ -1,42 +1,51 @@
-
-
-
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 
 export const Months = () => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
+    const [animationDirection, setAnimationDirection] = useState('slide-in');
+
     const cards = [
         {
             content: 'View PieChart Analysis of your services',
-            link: '/pie-chart-monthly-analysis'
+            link: '/pie-chart-monthly-analysis',
         },
         {
             content: 'View Month to Month Analysis',
-            link: '/month-to-month-analysis'
+            link: '/month-to-month-analysis',
         },
         {
             content: 'View Details of the S3Buckets',
-            link: '/S3Buckets'
+            link: '/S3Buckets',
         },
         {
             content: 'View EC2 Instances Info',
-            link: '/EC2Instances'
-
-        }
+            link: '/EC2Instances/per-day',
+        },
     ];
 
     const handlePrevCard = () => {
         setCurrentCardIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+        setAnimationDirection('slide-out');
     };
 
     const handleNextCard = () => {
         setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cards.length);
+        setAnimationDirection('slide-in');
     };
 
     const handleCircleClick = (index) => {
         setCurrentCardIndex(index);
     };
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            handleNextCard();
+        }, 5000);
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [currentCardIndex]);
 
     return (
         <div className="months">
@@ -44,8 +53,9 @@ export const Months = () => {
                 <div className="arrow-button prev-button" onClick={handlePrevCard}>
                     &lt;
                 </div>
-                <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card">
-
+                <div
+                    className={`p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card ${animationDirection}`}
+                >
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {cards[currentCardIndex].content}
                     </h5>
@@ -82,15 +92,13 @@ export const Months = () => {
                     <div
                         key={index}
                         style={{ cursor: 'pointer' }}
-                        className={`w-3 h-3 rounded-full bg-blue-500 ${index === currentCardIndex ? 'active' : ''
-                            }`}
+                        className={`w-3 h-3 rounded-full bg-blue-500 ${index === currentCardIndex ? 'active' : ''}`}
                         onClick={() => handleCircleClick(index)}
                     ></div>
                 ))}
             </div>
         </div>
-    );  
+    );
 };
 
 export default Months;
-

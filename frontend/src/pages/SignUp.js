@@ -5,7 +5,9 @@ import { SignUpService } from '../services/userService';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Animated } from '../utilities/Animations/Animated';
-import Register from '../images/Register.jpg';
+import CloudDev from '../images/CloudDev.webp';
+
+
 
 export const SignUp = () => {
 
@@ -123,12 +125,11 @@ export const SignUp = () => {
     // }
     return (
         <div className="signup">
-            <Animated image={Register} />
+            <Animated image={CloudDev} />
             <div className='title'>
-                <h2 className='title--heading'>CloudBot</h2>
-                <p className="m-24 title--description">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                    mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                <h2 className='title--heading'>SignUp to CloudBot</h2>
+                <p className="m-20 title--description">
+                Welcome to our cost optimizing tool for AWS! Chat with our knowledgeable chatbot to get instant answers to your queries about AWS, GCP, or Azure. Track and manage your costs efficiently by viewing detailed cost breakdowns for your AWS account. Start optimizing today!
                 </p>
             </div>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

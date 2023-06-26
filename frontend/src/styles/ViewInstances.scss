@@ -3,6 +3,7 @@
     align-items: center;
     font-size: 1rem;
     color: #555;
+    margin-top: 20px;
 }
 
 .page-selector>* {
@@ -35,7 +36,7 @@ button {
     font-size: 1rem;
     border-radius: 0.25rem;
     transition: all 0.2s;
-    margin: 1rem;
+    margin: 0.5rem;
 }
 
 button:hover {
@@ -96,9 +97,17 @@ button.focus:hover {
     border-radius: 4px;
     font-size: 14px;
 }
-.viewservices-table{
+
+.viewservices-table {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 230px;
+}
+
+.button-group {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+
 }

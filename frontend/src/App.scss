@@ -9,15 +9,19 @@
 @import './styles/PieChartAnalysis.scss';
 @import './styles/MonthlyAnalysis.scss';
 @import './styles/Loadingpage.scss';
-@import './styles/Dashbord.scss';
 @import './styles/PieChartMonthAnalysis.scss';
 @import './styles/Table.scss';
 @import './styles/SignUp.scss';
 @import './styles/Months.scss';
-@import './styles/chat.scss';
 @import './styles/ChatScreen.scss';
 @import './styles/Animated.scss';
 @import './styles/S3Buckets.scss';
+@import './styles/EC2Instances.scss';
+@import './styles/AwsKeys.scss';
+@import './styles/Sidebarforallec2.scss';
+@import './styles/Bill.scss';
+@import './styles/SideDrawerForChat.scss';
+@import './styles/Rds.scss';
 html,
 body {
     height: 100%;
