@@ -142,7 +142,7 @@ export const SignUp = () => {
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form className="space-y-6  text-white" action="/" method="POST" onSubmit={SubmitHandler}>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-400">
+                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-white-100">
                                 Email address
                             </label>
                             <div className="mt-2">
@@ -161,7 +161,7 @@ export const SignUp = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-400">
+                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-white-100">
                                 Password
                             </label>
                         </div>
@@ -180,7 +180,7 @@ export const SignUp = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-400">
+                            <label htmlFor="name" className="block text-sm font-medium leading-6 text-white-100">
                                 Name
                             </label>
                             <div className="mt-2">

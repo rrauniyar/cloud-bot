@@ -12,7 +12,7 @@ export function TableInstances(Data) {
         return Object.entries(obj).flatMap(([key, value]) => {
             if (typeof value === 'object' && value !== null) {
                 return objectToKeyValuePairs(value).map(([nestedKey, nestedValue]) => [
-                    `${key}-${nestedKey}`,
+                    `${key}${nestedKey}`,
                     nestedValue,
                 ]);
             } else {
@@ -47,10 +47,22 @@ export function TableInstances(Data) {
         let columnData = [];
         if (obj) {
             for (let objKey of keys) {
-                // console.log(objKey);
+                console.log(objKey);
+                // if (objKey.localeCompare("objectDetailsList0.numberOfDaysSinceLastAccess"
+                // ) === 0) {
+
+                //     let newColumnObj = {};
+                //     newColumnObj['Header'] = "LastAccessDays";
+                //     newColumnObj['accessor'] = objKey;
+                //     columnData.push(newColumnObj);
+                //     continue;
+
+                // }
                 if (objKey.includes(".")) {
                     continue;
                 }
+
+
                 let newColumnObj = {};
                 newColumnObj['Header'] = objKey;
                 newColumnObj['accessor'] = objKey;

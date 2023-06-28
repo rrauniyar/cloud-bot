@@ -103,12 +103,11 @@ export const ChatScreen = () => {
 
 
         <div className="chat dark">
-            {/* <SideBarForChat index={index} title={title} /> */}
             <SideDrawerForChat index={index} />
             {!(chatList.length === 0 || chatList[0].length === 0) ? (
-                <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen dark:bg-gray-900">
+                <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen bg-gray-50 light:bg-[#bbbbbf]">
 
-                    <div id="messages" className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+                    <div id="messages" className="flex flex-col space-y-4 p-3 mt-4 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
                         <ChatOutput message={Data} />
 
                     </div>
@@ -137,7 +136,7 @@ export const ChatScreen = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0 dark:border-gray-700">
+                        <div className="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0 dark:border-gray-300">
                             <div className="relative flex">
                                 <input
                                     onKeyPress={(e) => {

@@ -28,11 +28,13 @@ import EC2Icon from 'react-aws-icons/dist/aws/logo/EC2';
 import S3Icon from 'react-aws-icons/dist/aws/logo/S3'
 import RDSIcon from 'react-aws-icons/dist/aws/logo/RDS'
 import { LooksOne } from '@material-ui/icons';
-import { Looks3Sharp,Looks5Sharp } from '@material-ui/icons';
+import { Looks3Sharp, Looks5Sharp } from '@material-ui/icons';
 
 import { TableChartSharp } from '@material-ui/icons';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { TableInstancesEC2PerDays } from "../utilities/TableInstanceEC2PerDays";
+import { TableInstances } from "../utilities/TableInstances";
+import { S3TableResponse } from "../utilities/S3TableResponse";
 
 
 
@@ -145,9 +147,13 @@ export const EC2Instances = (props) => {
     const daytype = props.daytype;
     const daynumber = props.daynumber;
     const [Data, setData] = useState([]);
+    const [reducedData, setReducedData] = useState("");
+
+
     if (props.takeinput) {
 
     }
+
     useEffect(() => {
 
         const fetchData = async () => {
@@ -174,6 +180,24 @@ export const EC2Instances = (props) => {
 
 
 
+
+
+
+    console.log(Data);
+    const tableInstanceEC2 = TableInstancesEC2PerDays(Data, Cpuvalue, memoryValue);
+
+
+    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow, canNextPage, canPreviousPage, pageOptions, state, gotoPage, pageCount, setPageSize } = tableInstanceEC2;
+
+    const stringifyData = JSON.stringify(tableInstanceEC2.data);
+
+
+
+
+
+
+
+
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
@@ -187,14 +211,26 @@ export const EC2Instances = (props) => {
         console.log(response);
     }
 
+    async function HandleReduce() {
+        setReducedData("loading");
+        const response = await myAxiosDs.post("/chat", {
+            role: "AWS_cost_reduction",
+            message: stringifyData
+        }).then((response) => response.data).then((response) => {
+            setReducedData(response.text);
+            console.log(response);
+        });
 
-    console.log(Data);
-    const tableInstanceEC2 = TableInstancesEC2PerDays(Data, Cpuvalue, memoryValue);
+        console.log(response);
+    }
 
 
-    const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow, canNextPage, canPreviousPage, pageOptions, state, gotoPage, pageCount, setPageSize } = tableInstanceEC2;
+    const tableResponse = TableInstances(reducedData);
 
-    const stringifyData = JSON.stringify(tableInstanceEC2.data);
+    console.log(tableResponse);
+
+    const tableResponseObject = reducedData && reducedData !== "loading" ? JSON.parse(reducedData) : null;
+
 
     return (
         <div className="ec2-instance-container">
@@ -575,25 +611,51 @@ export const EC2Instances = (props) => {
                     </div>
 
 
-                    <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0" }} onClick={HandleOptimize}>Optimize</button>
-                    {optimizedData === null ? (
-                        <div>
+                    <div className="optimization-buttons">
 
-                        </div>
-                    ) : (
-                        <div>
-                            {optimizedData === "loading" ? (
+                        <div className="optimization">
+                            <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Optimize</button>
+
+                            {optimizedData === null ? (
                                 <div>
-                                    <Discuss />
+
                                 </div>
                             ) : (
-                                // <Item elevation={24}>
-                                //     {optimizedData}
-                                // </Item>
-                                <div className="optimizedData" >{optimizedData}</div>
+                                <div>
+                                    {optimizedData === "loading" ? (
+                                        <div>
+                                            <Discuss />
+                                        </div>
+                                    ) : (
+                                        <div className="optimizedData">{optimizedData}</div>
+                                    )}
+                                </div>
                             )}
                         </div>
-                    )}
+
+                        <div className="optimization">
+                            <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleReduce}>Reduce</button>
+
+                            {reducedData === null ? (
+                                <div>
+
+                                </div>
+                            ) : (
+                                <div>
+                                    {reducedData === "loading" ? (
+                                        <div>
+                                            <Discuss />
+                                        </div>
+                                    ) : (
+                                        <div className="optimizedData">
+                                            <S3TableResponse data={tableResponseObject} />
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
                 </div>
 
             </div >) : (< Loading />)}

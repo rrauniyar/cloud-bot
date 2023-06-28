@@ -101,7 +101,9 @@ export const MonthlyAnalysis = () => {
 
             {data.length > 0 ? (
                 <div className="monthly-analysis">
+                    <h3>View </h3>
                     <SidebarHome />
+
                     <div className='monthly-analysis__graph'>
                         {submitState ? (
                             <div>

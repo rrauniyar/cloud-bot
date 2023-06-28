@@ -5,9 +5,11 @@ import { Loading } from '../utilities/Loading'
 import { SidebarHome } from "../HomePageComponents/SidebarHome";
 import { myAxiosDs } from "../services/helperDs";
 import { Discuss } from "react-loader-spinner";
+import { S3TableResponse } from '../utilities/S3TableResponse';
 export const S3Buckets = () => {
     const [Data, setData] = useState([]);
     const [optimizedData, setOptimizedData] = useState("");
+    const [reducedData, setReducedData] = useState("");
     useEffect(() => {
         const fetchData = async () => {
             await myAxiosAws.post("/s3/configure/access", {
@@ -30,13 +32,17 @@ export const S3Buckets = () => {
         fetchData();
     }, [])
 
-    const stringifyData = JSON.stringify(Data);
+
+
+    const stringifyDataOptimized = JSON.stringify(Data);
+
+
 
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
-            role: "AWS",
-            message: stringifyData
+            role: "AWS_cost_optimization",
+            message: stringifyDataOptimized
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);
             console.log(response);
@@ -45,8 +51,37 @@ export const S3Buckets = () => {
         console.log(response);
     }
 
+    async function HandleReduce() {
+        setReducedData("loading");
+        const response = await myAxiosDs.post("/chat", {
+            role: "AWS_cost_reduction",
+            message: stringifyDataOptimized
+        }).then((response) => response.data).then((response) => {
+            setReducedData(response.text);
+            console.log(response);
+        });
+
+        console.log(response);
+    }
+
+
+
     const tableInstance = TableInstances(Data);
+
+    console.log(tableInstance);
+    
     const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow, canNextPage, canPreviousPage, pageOptions, state, gotoPage, pageCount, setPageSize } = tableInstance;
+
+
+    console.log(reducedData);
+
+
+
+    const tableResponseObject = reducedData && reducedData !== "loading" ? JSON.parse(reducedData) : null;
+
+
+
+
     return (
         <div className="s3-buckets">
             <SidebarHome />
@@ -121,23 +156,53 @@ export const S3Buckets = () => {
                     </div>
                 </div>
 
+                <div className="optimization-buttons">
 
-                <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0" }} onClick={HandleOptimize}>Optimize</button>
-                {optimizedData === null ? (
-                    <div>
+                    <div className="optimization">
+                        <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Optimize</button>
 
-                    </div>
-                ) : (
-                    <div>
-                        {optimizedData === "loading" ? (
+                        {optimizedData === null ? (
                             <div>
-                                <Discuss />
+
                             </div>
                         ) : (
-                            <div className="optimizedData">{optimizedData}</div>
+                            <div>
+                                {optimizedData === "loading" ? (
+                                    <div>
+                                        <Discuss />
+                                    </div>
+                                ) : (
+                                    <div className="optimizedData">{optimizedData}</div>
+                                )}
+                            </div>
                         )}
                     </div>
-                )}
+
+                    <div className="optimization">
+                        <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleReduce}>Reduce</button>
+
+                        {reducedData === null ? (
+                            <div>
+
+                            </div>
+                        ) : (
+                            <div>
+                                {reducedData === "loading" ? (
+                                    <div>
+                                        <Discuss />
+                                    </div>
+                                ) : (
+                                    // <div>{optimizedData}</div>
+                                    <div className="optimizedData">
+                                        <S3TableResponse data={tableResponseObject} />
+                                    </div>
+
+                                )}
+                            </div>
+                        )}
+                    </div>
+
+                </div>
 
 
             </div >) : (<Loading />)}
@@ -145,3 +210,9 @@ export const S3Buckets = () => {
         </div>
     )
 }
+
+
+
+
+
+

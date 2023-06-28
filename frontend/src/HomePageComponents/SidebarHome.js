@@ -100,7 +100,7 @@ export const SidebarHome = () => {
 
 
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -271,28 +271,7 @@ export const SidebarHome = () => {
                         </ListItem>
                     </a>
 
-                    <a href="/pie-chart-monthly-analysis">
-                        <ListItem disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <PieChartIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Piechart Analysis" sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
-                        </ListItem>
-                    </a>
+  
 
                     <a href="/Bill">
                         <ListItem disablePadding sx={{ display: 'block' }}>

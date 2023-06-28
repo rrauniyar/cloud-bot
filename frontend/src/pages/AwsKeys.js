@@ -62,7 +62,7 @@ export const AwsKeys = () => {
                 <div className="mt-60 sm:mx-auto sm:w-full sm:max-w-sm ">
                     <form className="space-y-6  text-white" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="AwsSecretkey" className="block text-sm mx-2 font-medium leading-6 text-gray-400">AWS Secret Key:</label>
+                            <label htmlFor="AwsSecretkey" className="block text-sm mx-2 font-medium leading-6text-white-100">AWS Secret Key:</label>
                             <input
                                 type="text"
                                 id="AwsSecretkey"
@@ -74,7 +74,7 @@ export const AwsKeys = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="AwsKey" className="block text-sm mx-2 font-medium leading-6 text-gray-400">AWS Access Key:</label>
+                            <label htmlFor="AwsKey" className="block text-sm mx-2 font-medium leading-6text-white-100">AWS Access Key:</label>
                             <input
                                 type="text"
                                 id="AwsKey"
@@ -90,9 +90,9 @@ export const AwsKeys = () => {
                                 style={{ margin: "10" }}>Submit</button>
                         </div>
                     </form>
-                    <p className="mt-10 text-center text-sm text-gray-400">
+                    <p className="mt-10 text-center text text-gray-200" style={{fontSize:"15px"}}>
                         Don't Have an Aws Account ?{' '}
-                        <a href="/chat/0" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                        <a href="/chat/0" className="font-semibold leading-6 text-indigo-500 hover:text-indigo-600">
                             Interact with our chatBot
                         </a>
                     </p>

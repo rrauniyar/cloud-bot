@@ -106,7 +106,7 @@ export const Login = (props) => {
                 {nameOfUser !== "USER" ? (<div className="block text font-medium leading-10 text-gray-100">Welcome {nameOfUser}</div>) : (<div></div>)}
                 <form className="space-y-6" action="/" method="POST" onSubmit={SubmitHandler}>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-300">
+                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-100">
                             Email address
                         </label>
                         <div className="mt-2">

@@ -33,7 +33,7 @@ import GraphicEq from '@material-ui/icons/GraphicEq';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import ChatIcon from '@material-ui/icons/Chat';
 import { TableInstancesRDS } from "../utilities/TableInstancesRds";
-
+import { S3TableResponse } from "../utilities/S3TableResponse";
 
 
 const drawerWidth = 240;
@@ -107,6 +107,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export const RDS = () => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
+    const [reducedData, setReducedData] = useState("");
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -167,10 +168,13 @@ export const RDS = () => {
     const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow, canNextPage, canPreviousPage, pageOptions, state, gotoPage, pageCount, setPageSize } = tableInstance;
     const stringifyData = JSON.stringify(tableInstance.data);
 
+
+
+
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
-            role: "AWS",
+            role: "AWS_cost_optimization",
             message: stringifyData
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);
@@ -179,6 +183,23 @@ export const RDS = () => {
 
         console.log(response);
     }
+
+    async function HandleReduce() {
+        setReducedData("loading");
+        const response = await myAxiosDs.post("/chat", {
+            role: "AWS_cost_reduction",
+            message: stringifyData
+        }).then((response) => response.data).then((response) => {
+            setReducedData(response.text);
+            console.log(response);
+        });
+
+        console.log(response);
+    }
+
+
+    const tableResponseObject = reducedData && reducedData !== "loading" ? JSON.parse(reducedData) : null;
+
 
     return (
         <div className="rds">
@@ -526,22 +547,52 @@ export const RDS = () => {
                 </div>
 
 
-                <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0" }} onClick={HandleOptimize}>Optimize</button>
-                {optimizedData === null ? (
-                    <div>
+                <div className="optimization-buttons">
 
-                    </div>
-                ) : (
-                    <div>
-                        {optimizedData === "loading" ? (
+                    <div className="optimization">
+                        <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Optimize</button>
+
+                        {optimizedData === null ? (
                             <div>
-                                <Discuss />
+
                             </div>
                         ) : (
-                            <div className="optimizedData">{optimizedData}</div>
+                            <div>
+                                {optimizedData === "loading" ? (
+                                    <div>
+                                        <Discuss />
+                                    </div>
+                                ) : (
+                                    <div className="optimizedData">{optimizedData}</div>
+                                )}
+                            </div>
                         )}
                     </div>
-                )}
+
+                    <div className="optimization">
+                        <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleReduce}>Reduce</button>
+
+                        {reducedData === null ? (
+                            <div>
+
+                            </div>
+                        ) : (
+                            <div>
+                                {reducedData === "loading" ? (
+                                    <div>
+                                        <Discuss />
+                                    </div>
+                                ) : (
+                                    // <div>{optimizedData}</div>
+                                    <div className="optimizedData">
+                                        <S3TableResponse data={tableResponseObject} />
+                                    </div>
+
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
 
 
             </div >) : (<Loading />)}

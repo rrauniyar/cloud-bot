@@ -330,7 +330,7 @@ export const Home = () => {
                             </ListItem>
                         </a>
 
-                        <a href="/pie-chart-monthly-analysis">
+                        {/* <a href="/pie-chart-monthly-analysis">
                             <ListItem disablePadding sx={{ display: 'block' }}>
                                 <ListItemButton
                                     sx={{
@@ -351,7 +351,7 @@ export const Home = () => {
                                     <ListItemText primary="Piechart Analysis" sx={{ opacity: open ? 1 : 0 }} />
                                 </ListItemButton>
                             </ListItem>
-                        </a>
+                        </a> */}
 
                         <a href="/Bill">
                             <ListItem disablePadding sx={{ display: 'block' }}>
