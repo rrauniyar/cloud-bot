@@ -116,7 +116,7 @@ export const Home = () => {
     data.sort((a, b) => b.cost_per_month - a.cost_per_month);
 
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     const handleDrawerOpen = () => {
         setOpen(true);
