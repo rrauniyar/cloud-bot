@@ -2,8 +2,19 @@ import React, { useState } from 'react';
 import { Slider, Typography, ListItemText } from '@material-ui/core';
 import { myAxiosDs } from '../services/helperDs';
 import { Discuss } from 'react-loader-spinner';
+import { useEffect } from 'react';
 
 export const ReducedList = (props) => {
+    const data = props.data;
+
+    const [OriginalData, setOriginalData] = useState([]);
+
+    useEffect(() => {
+        const copiedData = JSON.parse(JSON.stringify(data));
+        setOriginalData(copiedData);
+    }, [data]);
+
+
     const jsonData = props.data;
     const [instanceData, setInstanceData] = useState(jsonData);
 
@@ -31,12 +42,16 @@ export const ReducedList = (props) => {
         })
     }
 
+
     const stringifyData = JSON.stringify(instanceData);
+    const stringifyOriginalData=JSON.stringify(OriginalData);
+    console.log(stringifyData);
+    console.log(stringifyOriginalData);
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
             role: "AWS_ec2",
-            message: stringifyData
+            message: stringifyOriginalData + '+' + stringifyData
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);
             console.log(response);

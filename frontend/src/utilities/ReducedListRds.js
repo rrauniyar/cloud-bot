@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import { Slider, Typography, ListItemText } from '@material-ui/core';
 import { myAxiosDs } from '../services/helperDs';
 import { Discuss } from 'react-loader-spinner';
+import { useEffect } from 'react';
 
 export const ReducedListRds = (props) => {
+    const data = props.data;
     const jsonData = props.data;
     const [instanceData, setInstanceData] = useState(jsonData);
+
+    const [OriginalData, setOriginalData] = useState([]);
+
+    useEffect(() => {
+        const copiedData = JSON.parse(JSON.stringify(data));
+        setOriginalData(copiedData);
+    }, [data]);
+
+
 
     const handleVcpuChange = (event, value, index) => {
         setInstanceData(prevData => {
@@ -24,11 +35,12 @@ export const ReducedListRds = (props) => {
     };
 
     const stringifyData = JSON.stringify(instanceData);
+    const stringifyOriginalData=JSON.stringify(OriginalData);
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
             role: "AWS_rds",
-            message: stringifyData
+            message: stringifyOriginalData+ '+'+ stringifyData
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);
             console.log(response);
@@ -51,7 +63,7 @@ export const ReducedListRds = (props) => {
                     } >
                         <ListItemText
                             primary={`Instance ID: ${item.dbInstanceID
-                            }`}
+                                }`}
                             secondary={`Instance Class: ${item.instanceClass}`}
                         />
                         <div>
