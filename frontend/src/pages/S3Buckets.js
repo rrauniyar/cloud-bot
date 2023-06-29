@@ -30,8 +30,8 @@ import EC2Icon from 'react-aws-icons/dist/aws/logo/EC2';
 import S3Icon from 'react-aws-icons/dist/aws/logo/S3'
 import RDSIcon from 'react-aws-icons/dist/aws/logo/RDS'
 import GraphicEq from '@material-ui/icons/GraphicEq';
-import PieChartIcon from '@material-ui/icons/PieChart';
 import ChatIcon from '@material-ui/icons/Chat';
+import { ReducedListS3 } from "../utilities/ReducedListS3";
 
 export const S3Buckets = () => {
 
@@ -473,23 +473,7 @@ export const S3Buckets = () => {
                         <div className="optimization-buttons">
 
                             <div className="optimization">
-                                <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Reduce</button>
-
-                                {optimizedData === null ? (
-                                    <div>
-
-                                    </div>
-                                ) : (
-                                    <div>
-                                        {optimizedData === "loading" ? (
-                                            <div>
-                                                <Discuss />
-                                            </div>
-                                        ) : (
-                                            <div className="optimizedData">{optimizedData}</div>
-                                        )}
-                                    </div>
-                                )}
+                                <ReducedListS3 data={Data}/>
                             </div>
 
                             <div className="optimization">

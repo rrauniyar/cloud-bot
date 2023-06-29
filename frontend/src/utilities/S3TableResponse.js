@@ -10,7 +10,7 @@ export const S3TableResponse = (props) => {
     const tableInstance = TableInstances(data);
     const { getTableProps, getTableBodyProps, headerGroups, page, nextPage, previousPage, prepareRow, canNextPage, canPreviousPage, pageOptions, state, gotoPage, pageCount, setPageSize } = tableInstance;
     return (
-        <div>
+        <div className="S3TableResponse">
             <table  {...getTableProps()} className="table">
                 <thead>
                     {headerGroups.map((headerGroup) => (

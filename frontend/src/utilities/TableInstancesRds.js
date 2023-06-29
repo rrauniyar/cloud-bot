@@ -4,12 +4,6 @@ import { useEffect, useState } from 'react';
 export function TableInstancesRDS(TableData, Cpuvalue, memoryValue) {
 
 
-    console.log(Cpuvalue);
-
-    console.log(TableData);
-
-    console.log(memoryValue);
-
     const [Data, setData] = useState([]);
     useEffect(() => {
         const filteredData = TableData.filter(

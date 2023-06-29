@@ -36,7 +36,7 @@ import { TableInstancesEC2PerDays } from "../utilities/TableInstanceEC2PerDays";
 import { TableInstances } from "../utilities/TableInstances";
 import { S3TableResponse } from "../utilities/S3TableResponse";
 
-
+import { ReducedList } from '../utilities/ReducedList';
 
 
 
@@ -198,10 +198,11 @@ export const EC2Instances = (props) => {
 
 
 
+
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
-            role: "AWS",
+            role: "AWS_cost_optimization",
             message: stringifyData
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);
@@ -230,6 +231,9 @@ export const EC2Instances = (props) => {
     console.log(tableResponse);
 
     const tableResponseObject = reducedData && reducedData !== "loading" ? JSON.parse(reducedData) : null;
+
+
+
 
 
     return (
@@ -485,7 +489,7 @@ export const EC2Instances = (props) => {
                                 </ListItem>
                             </a>
 
-                            <ListItem disablePadding sx={{ display: 'flex' }}>
+                            {/* <ListItem disablePadding sx={{ display: 'flex' }}>
                                 <Slider
                                     sx={{
                                         width: "50%",
@@ -525,7 +529,7 @@ export const EC2Instances = (props) => {
                                     getAriaValueText={valuetext}
                                 />
                                 <ListItemText primary="Memory" sx={{ opacity: open ? 1 : 0, marginLeft: "10px" }} />
-                            </ListItem>
+                            </ListItem> */}
 
 
 
@@ -584,7 +588,7 @@ export const EC2Instances = (props) => {
                                     }
 
                                 </select>
-                                <div className="button-group-ec2">
+                                <div className="button-group">
 
                                     <button className="green focus dark" style={{ margin: "0" }} onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'} </button>
                                     <button className="green focus dark" style={{ margin: "0" }} onClick={() => previousPage()} disabled={!canPreviousPage}>{'<'}  </button>
@@ -611,23 +615,8 @@ export const EC2Instances = (props) => {
                             <div className="optimization-buttons">
 
                                 <div className="optimization">
-                                    <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Reduce</button>
 
-                                    {optimizedData === null ? (
-                                        <div>
-
-                                        </div>
-                                    ) : (
-                                        <div>
-                                            {optimizedData === "loading" ? (
-                                                <div>
-                                                    <Discuss />
-                                                </div>
-                                            ) : (
-                                                <div className="optimizedData">{optimizedData}</div>
-                                            )}
-                                        </div>
-                                    )}
+                                    <ReducedList data={Data} />
                                 </div>
 
                                 <div className="optimization">

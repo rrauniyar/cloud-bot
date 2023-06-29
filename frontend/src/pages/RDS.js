@@ -7,7 +7,7 @@ import { myAxiosDs } from "../services/helperDs";
 import { Discuss } from "react-loader-spinner";
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import Slider from '@mui/material/Slider';
+
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -30,10 +30,11 @@ import EC2Icon from 'react-aws-icons/dist/aws/logo/EC2';
 import S3Icon from 'react-aws-icons/dist/aws/logo/S3'
 import RDSIcon from 'react-aws-icons/dist/aws/logo/RDS'
 import GraphicEq from '@material-ui/icons/GraphicEq';
-import PieChartIcon from '@material-ui/icons/PieChart';
+
 import ChatIcon from '@material-ui/icons/Chat';
 import { TableInstancesRDS } from "../utilities/TableInstancesRds";
 import { S3TableResponse } from "../utilities/S3TableResponse";
+import { ReducedListRds } from "../utilities/ReducedListRds";
 
 
 const drawerWidth = 240;
@@ -361,26 +362,7 @@ export const RDS = () => {
                         </a>
 
 
-                        <ListItem disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <PieChartIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Piechart Analysis" sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
-                        </ListItem>
+
 
 
                         <a href="/Bill">
@@ -427,7 +409,7 @@ export const RDS = () => {
                                 </ListItemButton>
                             </ListItem>
                         </a>
-                        <ListItem disablePadding sx={{ display: 'flex' }}>
+                        {/* <ListItem disablePadding sx={{ display: 'flex' }}>
                             <Slider
                                 sx={{
                                     width: "50%",
@@ -467,7 +449,7 @@ export const RDS = () => {
                                 getAriaValueText={valuetext}
                             />
                             <ListItemText primary="Memory" sx={{ opacity: open ? 1 : 0, marginLeft: "10px" }} />
-                        </ListItem>
+                        </ListItem> */}
                     </List>
 
                 </Drawer>
@@ -550,23 +532,8 @@ export const RDS = () => {
                 <div className="optimization-buttons">
 
                     <div className="optimization">
-                        <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Reduce</button>
-
-                        {optimizedData === null ? (
-                            <div>
-
-                            </div>
-                        ) : (
-                            <div>
-                                {optimizedData === "loading" ? (
-                                    <div>
-                                        <Discuss />
-                                    </div>
-                                ) : (
-                                    <div className="optimizedData">{optimizedData}</div>
-                                )}
-                            </div>
-                        )}
+                   
+                        <ReducedListRds data={Data} />
                     </div>
 
                     <div className="optimization">
@@ -583,7 +550,7 @@ export const RDS = () => {
                                         <Discuss />
                                     </div>
                                 ) : (
-                    
+
                                     <div className="optimizedData">
                                         <S3TableResponse data={tableResponseObject} />
                                     </div>

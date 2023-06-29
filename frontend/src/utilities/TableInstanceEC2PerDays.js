@@ -4,11 +4,6 @@ import { useEffect, useState } from 'react';
 export function TableInstancesEC2PerDays(TableData, Cpuvalue, memoryValue) {
 
 
-    console.log(Cpuvalue);
-
-    console.log(TableData);
-
-    console.log(memoryValue);
 
     const [Data, setData] = useState([]);
     useEffect(() => {
