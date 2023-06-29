@@ -611,7 +611,7 @@ export const EC2Instances = (props) => {
                             <div className="optimization-buttons">
 
                                 <div className="optimization">
-                                    <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Optimize</button>
+                                    <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleOptimize}>Reduce</button>
 
                                     {optimizedData === null ? (
                                         <div>
@@ -631,7 +631,7 @@ export const EC2Instances = (props) => {
                                 </div>
 
                                 <div className="optimization">
-                                    <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleReduce}>Reduce</button>
+                                    <button className="green focus dark" style={{ marginTop: "60px", marginLeft: "0", height: "50px", width: "100px" }} onClick={HandleReduce}>Optimize</button>
 
                                     {reducedData === null ? (
                                         <div>
