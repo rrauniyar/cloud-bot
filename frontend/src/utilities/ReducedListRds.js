@@ -27,7 +27,7 @@ export const ReducedListRds = (props) => {
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
-            role: "AWS_instance",
+            role: "AWS_rds",
             message: stringifyData
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);

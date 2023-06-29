@@ -21,7 +21,7 @@ export const ReducedListS3 = (props) => {
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
-            role: "AWS_instance",
+            role: "AWS_s3bucket",
             message: stringifyData
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);

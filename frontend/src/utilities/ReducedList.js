@@ -23,11 +23,19 @@ export const ReducedList = (props) => {
         });
     };
 
+    const handleCpuUtilizationChange = (event, value, index) => {
+        setInstanceData(prevData => {
+            const newData = [...prevData];
+            newData[index].averageCpuUtilization = value;
+            return newData;
+        })
+    }
+
     const stringifyData = JSON.stringify(instanceData);
     async function HandleOptimize() {
         setOptimizedData("loading");
         const response = await myAxiosDs.post("/chat", {
-            role: "AWS_instance",
+            role: "AWS_ec2",
             message: stringifyData
         }).then((response) => response.data).then((response) => {
             setOptimizedData(response.text);
@@ -49,7 +57,7 @@ export const ReducedList = (props) => {
                 {instanceData.map((item, index) => (
 
                     <div key={item.instanceId} >
-                        <ListItemText primary={index+1} />
+                        <ListItemText primary={index + 1} />
                         <ListItemText
                             primary={`Instance ID: ${item.instanceId}`}
                             secondary={`Instance Name: ${item.instanceName}`}
@@ -75,6 +83,19 @@ export const ReducedList = (props) => {
                                 aria-labelledby="memory-slider"
 
                             />
+
+                            <Typography >Cpu Utilization:</Typography>
+                            <Slider
+                                value={item.averageCpuUtilization}
+                                min={0}
+                                max={60}
+                                step={0.03}
+                                onChange={(event, value) => handleCpuUtilizationChange(event, value, index)}
+                                valueLabelDisplay="auto"
+                                aria-labelledby="memory-slider"
+
+                            />
+
                         </div>
                     </div>
                 ))}
