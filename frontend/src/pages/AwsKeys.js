@@ -70,6 +70,7 @@ export const AwsKeys = () => {
                                 value={formData.AwsSecretkey}
                                 className="block w-full rounded-md border-0 py-1.5 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-700"
                                 onChange={handleChange}
+                                autoComplete="off"
                                 required
                             />
                         </div>
@@ -81,6 +82,7 @@ export const AwsKeys = () => {
                                 name="AwsKey"
                                 value={formData.AwsKey}
                                 onChange={handleChange}
+                                autoComplete="off"
                                 className="block w-full rounded-md border-0 py-1.5 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-700"
                                 required
                             />
